@@ -1,10 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Trophy } from 'lucide-react';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false);
     const location = useLocation();
+
+    const isHome = location.pathname === '/';
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 20) {
+                setIsScrolled(true);
+            } else {
+                setIsScrolled(false);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
 
     const navLinks = [
         { name: 'Home', path: '/' },
@@ -19,14 +35,36 @@ const Navbar = () => {
 
     const isActive = (path) => location.pathname === path;
 
+    // Navbar background logic
+    const navbarClasses = `fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isHome && !isScrolled
+        ? 'bg-transparent py-4'
+        : 'bg-white/90 backdrop-blur-md shadow-sm py-2'
+        }`;
+
+    // Link text color logic
+    const linkClasses = (path) => {
+        const activeBase = isHome && !isScrolled
+            ? 'text-primary font-bold relative after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-primary'
+            : 'text-primary font-bold bg-blue-50';
+
+        const inactiveBase = isHome && !isScrolled
+            ? 'text-gray-700 hover:text-primary font-medium hover:bg-white/50'
+            : 'text-gray-600 hover:text-primary hover:bg-gray-50 font-medium';
+
+        return `px-3 py-2 rounded-md text-sm transition-all duration-200 ${isActive(path) ? activeBase : inactiveBase
+            }`;
+    };
+
+    const logoColor = 'text-primary';
+
     return (
-        <nav className="bg-white shadow-md sticky top-0 z-50">
+        <nav className={navbarClasses}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex justify-between h-16">
+                <div className="flex justify-between items-center h-16">
                     <div className="flex items-center">
                         <Link to="/" className="flex-shrink-0 flex items-center gap-2">
-                            <Trophy className="h-8 w-8 text-primary" />
-                            <span className="font-bold text-xl text-primary tracking-tight">IIT Dharwad Sports</span>
+                            <Trophy className={`h-8 w-8 ${logoColor}`} />
+                            <span className={`font-bold text-xl tracking-tight ${logoColor}`}>IIT Dharwad Sports</span>
                         </Link>
                     </div>
 
@@ -36,27 +74,19 @@ const Navbar = () => {
                             <Link
                                 key={link.name}
                                 to={link.path}
-                                className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${isActive(link.path)
-                                        ? 'text-primary bg-blue-50'
-                                        : 'text-gray-600 hover:text-primary hover:bg-gray-50'
-                                    }`}
+                                className={linkClasses(link.path)}
                             >
                                 {link.name}
                             </Link>
                         ))}
-                        <Link
-                            to="/join"
-                            className="ml-4 px-4 py-2 rounded-md text-sm font-medium text-white bg-primary hover:bg-blue-700 transition-colors shadow-sm"
-                        >
-                            Join Sports
-                        </Link>
                     </div>
 
                     {/* Mobile menu button */}
                     <div className="flex items-center md:hidden">
                         <button
                             onClick={() => setIsOpen(!isOpen)}
-                            className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary"
+                            className={`inline-flex items-center justify-center p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary ${isHome && !isScrolled ? 'text-white hover:bg-white/10' : 'text-gray-400 hover:text-gray-500 hover:bg-gray-100'
+                                }`}
                         >
                             <span className="sr-only">Open main menu</span>
                             {isOpen ? <X className="block h-6 w-6" /> : <Menu className="block h-6 w-6" />}
@@ -67,7 +97,7 @@ const Navbar = () => {
 
             {/* Mobile Menu */}
             {isOpen && (
-                <div className="md:hidden bg-white border-t border-gray-100">
+                <div className="md:hidden bg-white border-t border-gray-100 shadow-lg absolute w-full left-0 top-full">
                     <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                         {navLinks.map((link) => (
                             <Link
@@ -75,20 +105,13 @@ const Navbar = () => {
                                 to={link.path}
                                 onClick={() => setIsOpen(false)}
                                 className={`block px-3 py-2 rounded-md text-base font-medium ${isActive(link.path)
-                                        ? 'text-primary bg-blue-50'
-                                        : 'text-gray-600 hover:text-primary hover:bg-gray-50'
+                                    ? 'text-primary bg-blue-50'
+                                    : 'text-gray-600 hover:text-primary hover:bg-gray-50'
                                     }`}
                             >
                                 {link.name}
                             </Link>
                         ))}
-                        <Link
-                            to="/join"
-                            onClick={() => setIsOpen(false)}
-                            className="block w-full text-center mt-4 px-4 py-2 rounded-md text-base font-medium text-white bg-primary hover:bg-blue-700"
-                        >
-                            Join Sports
-                        </Link>
                     </div>
                 </div>
             )}

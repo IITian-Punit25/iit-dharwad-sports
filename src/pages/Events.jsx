@@ -61,8 +61,8 @@ const Events = () => {
                         <button
                             onClick={() => setActiveTab('Upcoming')}
                             className={`px-6 py-2 rounded-md text-sm font-medium transition-all duration-200 ${activeTab === 'Upcoming'
-                                    ? 'bg-primary text-white shadow-sm'
-                                    : 'text-gray-600 hover:text-primary hover:bg-gray-50'
+                                ? 'bg-primary text-white shadow-sm'
+                                : 'text-gray-600 hover:text-primary hover:bg-gray-50'
                                 }`}
                         >
                             Upcoming Events
@@ -70,8 +70,8 @@ const Events = () => {
                         <button
                             onClick={() => setActiveTab('Past')}
                             className={`px-6 py-2 rounded-md text-sm font-medium transition-all duration-200 ${activeTab === 'Past'
-                                    ? 'bg-primary text-white shadow-sm'
-                                    : 'text-gray-600 hover:text-primary hover:bg-gray-50'
+                                ? 'bg-primary text-white shadow-sm'
+                                : 'text-gray-600 hover:text-primary hover:bg-gray-50'
                                 }`}
                         >
                             Past Events
@@ -87,7 +87,7 @@ const Events = () => {
                             className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-all duration-300 flex flex-col md:flex-row gap-6"
                         >
                             {/* Date Box */}
-                            <div className="flex-shrink-0 flex flex-col items-center justify-center bg-blue-50 text-primary rounded-lg w-24 h-24 border border-blue-100">
+                            <div className="flex-shrink-0 flex flex-col items-center justify-center bg-purple-50 text-primary rounded-lg w-24 h-24 border border-purple-100">
                                 <span className="text-3xl font-bold">{new Date(event.date).getDate()}</span>
                                 <span className="text-sm font-medium uppercase">
                                     {new Date(event.date).toLocaleString('default', { month: 'short' })}
@@ -125,11 +125,11 @@ const Events = () => {
                 <div className="mt-20 bg-primary rounded-2xl p-8 md:p-16 text-center text-white relative overflow-hidden">
                     <div className="relative z-10">
                         <h2 className="text-3xl md:text-4xl font-bold mb-6">PARAKRAM 2025</h2>
-                        <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+                        <p className="text-xl text-purple-100 mb-8 max-w-2xl mx-auto">
                             The Annual Sports Festival of IIT Dharwad is coming soon.
                             Get ready for 3 days of intense competition, glory, and celebration.
                         </p>
-                        <button className="bg-accent hover:bg-red-700 text-white font-bold py-3 px-8 rounded-full transition-colors shadow-lg">
+                        <button className="bg-accent hover:bg-secondary text-white font-bold py-3 px-8 rounded-full transition-colors shadow-lg">
                             Coming Soon
                         </button>
                     </div>

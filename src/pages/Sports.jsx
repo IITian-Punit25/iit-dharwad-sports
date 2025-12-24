@@ -1,74 +1,118 @@
 import React from 'react';
 import { featuredSports } from '../data/mockData';
-import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import SportCard from '../components/sports/SportCard';
 
-// Extended sports list (mock)
+import volleyballImg from '../assets/images/volleyball.png';
+import ttImg from '../assets/images/tt.png';
+import gymImg from '../assets/images/gym.png';
+import chessImg from '../assets/images/chess.png';
+
+// Extended sports list with COMPACT grid metadata
 const allSports = [
-    ...featuredSports,
+    {
+        ...featuredSports[0], // Cricket
+        category: 'Outdoor',
+        isTeam: true,
+        gridClass: 'md:col-span-2 md:row-span-2', // Keep Cricket large as anchor
+    },
+    {
+        ...featuredSports[1], // Football
+        category: 'Outdoor',
+        isTeam: true,
+        gridClass: 'md:col-span-1 md:row-span-1', // Reduced from tall to standard
+    },
+    {
+        ...featuredSports[2], // Basketball
+        category: 'Outdoor',
+        isTeam: true,
+        gridClass: 'md:col-span-1 md:row-span-1',
+    },
+    {
+        ...featuredSports[3], // Badminton
+        category: 'Indoor',
+        isTeam: false,
+        gridClass: 'md:col-span-1 md:row-span-1',
+    },
     {
         id: 5,
         name: 'Volleyball',
-        image: 'https://images.unsplash.com/photo-1592656094267-764a45160876?auto=format&fit=crop&q=80&w=800',
-        description: 'Spike, block, and serve on our sand and synthetic courts.',
+        image: volleyballImg,
+        description: 'Spike, block, and dive.',
+        category: 'Outdoor',
+        isTeam: true,
+        gridClass: 'md:col-span-1 md:row-span-1', // Reduced from wide to standard
     },
     {
         id: 6,
         name: 'Table Tennis',
-        image: 'https://images.unsplash.com/photo-1534158914592-062992fbe900?auto=format&fit=crop&q=80&w=800',
-        description: 'Lightning fast reflexes required. Join the TT club.',
+        image: ttImg,
+        description: 'Fast reflexes and spin shots.',
+        category: 'Indoor',
+        isTeam: false,
+        gridClass: 'md:col-span-1 md:row-span-1',
     },
     {
         id: 7,
         name: 'Athletics',
-        image: 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&q=80&w=800',
-        description: 'Track and field events for the speed demons and endurance runners.',
+        image: gymImg,
+        description: 'Push your limits.',
+        category: 'Outdoor',
+        isTeam: false,
+        gridClass: 'md:col-span-1 md:row-span-1', // Reduced from tall to standard
     },
     {
         id: 8,
         name: 'Chess',
-        image: 'https://images.unsplash.com/photo-1529699211952-734e80c4d42b?auto=format&fit=crop&q=80&w=800',
-        description: 'Battle of minds. Strategic gameplay for the intellectuals.',
+        image: chessImg,
+        description: 'Master strategy.',
+        category: 'Indoor',
+        isTeam: false,
+        gridClass: 'md:col-span-2 md:row-span-1', // Made wide for variety at bottom
     },
 ];
 
 const Sports = () => {
     return (
-        <div className="min-h-screen bg-gray-50 py-12">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center mb-16">
-                    <h1 className="text-4xl font-bold text-primary mb-4">Sports Offered</h1>
-                    <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                        Explore the diverse range of sports facilities and teams available at IIT Dharwad.
-                    </p>
+        <div className="min-h-screen bg-gray-50">
+            {/* Immersive Hero Section */}
+            <div className="relative h-[50vh] overflow-hidden bg-black">
+                <div className="absolute inset-0 opacity-40">
+                    <div className="grid grid-cols-4 h-full w-full animate-pulse-slow">
+                        {allSports.slice(0, 4).map((sport, i) => (
+                            <div key={i} className="h-full w-full bg-cover bg-center grayscale" style={{ backgroundImage: `url(${sport.image})` }} />
+                        ))}
+                    </div>
                 </div>
+                <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-gray-50"></div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {allSports.map((sport) => (
-                        <div
+                <div className="relative z-10 flex h-full flex-col items-center justify-center px-4 text-center">
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.8 }}
+                    >
+                        <h1 className="text-6xl md:text-8xl font-black uppercase tracking-tighter text-white mb-2">
+                            Sports
+                            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent text-3xl md:text-5xl mt-2 tracking-normal font-bold">
+                                & Clubs
+                            </span>
+                        </h1>
+                    </motion.div>
+                </div>
+            </div>
+
+            {/* Compact Bento Grid Section */}
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 -mt-16 relative z-20">
+                {/* Reduced row height from 300px to 200px for more compact view */}
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[200px]">
+                    {allSports.map((sport, index) => (
+                        <SportCard
                             key={sport.id}
-                            className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 group"
-                        >
-                            <div className="h-56 overflow-hidden relative">
-                                <img
-                                    src={sport.image}
-                                    alt={sport.name}
-                                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
-                                />
-                                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-300"></div>
-                            </div>
-                            <div className="p-6">
-                                <h3 className="text-2xl font-bold text-primary mb-3">{sport.name}</h3>
-                                <p className="text-gray-600 mb-6 line-clamp-2">
-                                    {sport.description}
-                                </p>
-                                <Link
-                                    to={`/sports/${sport.id}`}
-                                    className="inline-block px-6 py-2 border border-primary text-primary font-medium rounded-md hover:bg-primary hover:text-white transition-colors"
-                                >
-                                    View Details
-                                </Link>
-                            </div>
-                        </div>
+                            sport={sport}
+                            index={index}
+                            className={sport.gridClass}
+                        />
                     ))}
                 </div>
             </div>

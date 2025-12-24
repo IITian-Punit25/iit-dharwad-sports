@@ -1,15 +1,23 @@
 import React, { useState } from 'react';
 import { X, ZoomIn } from 'lucide-react';
+import cricketImg from '../assets/images/cricket.png';
+import footballImg from '../assets/images/volleyball.png'; // Using volleyball as placeholder if football missing or specific map
+import basketballImg from '../assets/images/basketball.png';
+import badmintonImg from '../assets/images/badminton.png';
+import volleyballImg from '../assets/images/volleyball.png';
+import athleticsImg from '../assets/images/gym.png'; // Using gym as placeholder
+import gymImg from '../assets/images/gym.png';
+import chessImg from '../assets/images/chess.png';
 
 const galleryImages = [
-    { id: 1, src: 'https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&q=80&w=800', category: 'Cricket' },
-    { id: 2, src: 'https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&q=80&w=800', category: 'Football' },
-    { id: 3, src: 'https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&q=80&w=800', category: 'Basketball' },
-    { id: 4, src: 'https://images.unsplash.com/photo-1626224583764-847649623dbb?auto=format&fit=crop&q=80&w=800', category: 'Badminton' },
-    { id: 5, src: 'https://images.unsplash.com/photo-1592656094267-764a45160876?auto=format&fit=crop&q=80&w=800', category: 'Volleyball' },
-    { id: 6, src: 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&q=80&w=800', category: 'Athletics' },
-    { id: 7, src: 'https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&q=80&w=800', category: 'Gym' },
-    { id: 8, src: 'https://images.unsplash.com/photo-1529699211952-734e80c4d42b?auto=format&fit=crop&q=80&w=800', category: 'Chess' },
+    { id: 1, src: cricketImg, category: 'Cricket' },
+    { id: 2, src: footballImg, category: 'Football' },
+    { id: 3, src: basketballImg, category: 'Basketball' },
+    { id: 4, src: badmintonImg, category: 'Badminton' },
+    { id: 5, src: volleyballImg, category: 'Volleyball' },
+    { id: 6, src: athleticsImg, category: 'Athletics' },
+    { id: 7, src: gymImg, category: 'Gym' },
+    { id: 8, src: chessImg, category: 'Chess' },
 ];
 
 const Gallery = () => {
@@ -39,8 +47,8 @@ const Gallery = () => {
                             key={category}
                             onClick={() => setFilter(category)}
                             className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${filter === category
-                                    ? 'bg-primary text-white'
-                                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                                ? 'bg-primary text-white'
+                                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                                 }`}
                         >
                             {category}

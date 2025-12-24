@@ -1,106 +1,142 @@
 import React from 'react';
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone, MapPin, Clock, ArrowRight } from 'lucide-react';
+import { motion } from 'framer-motion';
+
+// Staff Images
+import prabhuImg from '../assets/images/prabhu.jpg';
+import rajeshwaraImg from '../assets/images/rajeshwara.jpg';
+import keerthiImg from '../assets/images/keerthi.jpg';
+import sonttiImg from '../assets/images/sontti.jpg';
+import raviImg from '../assets/images/ravi.jpg';
+import rameshImg from '../assets/images/ramesh.png';
+
+// Facility Images for Showcase
+import heroImg from '../assets/images/contact-hero.jpg';
+import badmintonImg from '../assets/images/badminton.png';
+import basketballImg from '../assets/images/basketball.png';
+import cricketImg from '../assets/images/cricket.png';
+import gymImg from '../assets/images/gym.png';
 
 const councilMembers = [
     {
-        name: 'Rahul Sharma',
-        role: 'General Secretary',
-        email: 'gsec.sports@iitdh.ac.in',
-        phone: '+91 98765 43210',
-        image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=400',
+        name: 'Prof R Prabhu',
+        role: 'Dean SW',
+        email: 'deansw@iitdh.ac.in',
+        phone: '',
+        image: prabhuImg,
     },
     {
-        name: 'Priya Patel',
-        role: 'Deputy General Secretary',
-        email: 'dgsec.sports@iitdh.ac.in',
-        phone: '+91 98765 43211',
-        image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=400',
+        name: 'Prof Rajeshwara Rao M',
+        role: 'Associate Dean SW',
+        email: 'adean.sw.gymkhana@iitdh.ac.in',
+        phone: '',
+        image: rajeshwaraImg,
     },
     {
-        name: 'Amit Singh',
-        role: 'Cricket Secretary',
-        email: 'cricket.sec@iitdh.ac.in',
-        phone: '+91 98765 43212',
-        image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400',
+        name: 'Dr. Keerthi kumar',
+        role: 'Sports Officer',
+        email: 'keerthi.kumar@iitdh.ac.in',
+        phone: '',
+        image: keerthiImg,
     },
     {
-        name: 'Sneha Gupta',
-        role: 'Badminton Secretary',
-        email: 'badminton.sec@iitdh.ac.in',
-        phone: '+91 98765 43213',
-        image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=400',
+        name: 'Dr Sontti Goud',
+        role: 'FiC HPC and Sports',
+        email: 'fic.sw.sports@iitdh.ac.in',
+        phone: '',
+        image: sonttiImg,
     },
+    {
+        name: 'Ravi Shivprakash Galimath',
+        role: 'Junior Sports Officer',
+        email: 'ravi@iitdh.ac.in',
+        phone: '',
+        image: raviImg,
+    },
+    {
+        name: 'Gundaveni Ramesh',
+        role: 'Junior Sports Officer',
+        email: 'rameshg@iitdh.ac.in',
+        phone: '',
+        image: rameshImg,
+    },
+];
+
+const facilities = [
+    { name: 'Cricket Ground', image: cricketImg },
+    { name: 'Badminton Court', image: badmintonImg },
+    { name: 'Basketball Court', image: basketballImg },
+    { name: 'Gymnasium', image: gymImg },
 ];
 
 const Contact = () => {
     return (
-        <div className="min-h-screen bg-gray-50 py-12">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center mb-16">
-                    <h1 className="text-4xl font-bold text-primary mb-4">Contact Us</h1>
-                    <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                        Get in touch with the Sports Council for any queries or suggestions.
-                    </p>
+        <div className="min-h-screen bg-white">
+            {/* Hero Section with Parallax */}
+            <div className="relative h-[60vh] overflow-hidden">
+                <div
+                    className="absolute inset-0 bg-cover bg-center bg-fixed"
+                    style={{ backgroundImage: `url(${heroImg})` }}
+                >
+                    <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px]"></div>
                 </div>
-
-                {/* Office Bearers Grid */}
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
-                    {councilMembers.map((member, index) => (
-                        <div key={index} className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 text-center hover:shadow-md transition-shadow">
-                            <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden border-2 border-gray-100">
-                                <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
-                            </div>
-                            <h3 className="text-lg font-bold text-primary mb-1">{member.name}</h3>
-                            <p className="text-accent text-sm font-medium mb-4">{member.role}</p>
-                            <div className="space-y-2 text-sm text-gray-600">
-                                <div className="flex items-center justify-center gap-2">
-                                    <Mail className="w-4 h-4" />
-                                    <a href={`mailto:${member.email}`} className="hover:text-primary">{member.email}</a>
-                                </div>
-                                <div className="flex items-center justify-center gap-2">
-                                    <Phone className="w-4 h-4" />
-                                    <span>{member.phone}</span>
-                                </div>
-                            </div>
-                        </div>
-                    ))}
+                <div className="relative h-full flex flex-col items-center justify-center text-center px-4">
+                    <motion.h1
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8 }}
+                        className="text-5xl md:text-7xl font-black text-white mb-6 tracking-tight"
+                    >
+                        GET IN <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-accent">TOUCH</span>
+                    </motion.h1>
+                    <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.2 }}
+                        className="text-xl md:text-2xl text-gray-200 font-light max-w-3xl"
+                    >
+                        Connect with the team powering sports excellence at IIT Dharwad.
+                    </motion.p>
                 </div>
+            </div>
 
-                {/* Map and Info */}
-                <div className="grid md:grid-cols-2 gap-8">
-                    <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-8">
-                        <h2 className="text-2xl font-bold text-primary mb-6">Visit Us</h2>
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-20 relative z-10 pb-24">
+                {/* Contact Info Cards */}
+                <div className="grid md:grid-cols-2 gap-6 mb-24">
+                    <motion.div
+                        initial={{ opacity: 0, x: -50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        className="bg-white/95 backdrop-blur-xl p-8 md:p-10 rounded-3xl shadow-2xl border border-white/20 flex flex-col justify-center min-h-[300px]"
+                    >
+                        <h2 className="text-3xl font-bold text-gray-900 mb-8 flex items-center gap-3">
+                            <MapPin className="w-8 h-8 text-primary" />
+                            Visit Us
+                        </h2>
                         <div className="space-y-6">
-                            <div className="flex items-start gap-4">
-                                <div className="bg-blue-50 p-3 rounded-lg">
-                                    <MapPin className="w-6 h-6 text-primary" />
-                                </div>
-                                <div>
-                                    <h3 className="font-bold text-gray-900 mb-1">Sports Complex Office</h3>
-                                    <p className="text-gray-600">
-                                        Room 101, Student Activity Center,<br />
-                                        IIT Dharwad, WALMI Campus,<br />
-                                        Belur Industrial Area, Dharwad - 580011
-                                    </p>
-                                </div>
+                            <div>
+                                <h3 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-2">Location</h3>
+                                <p className="text-xl text-gray-800 font-medium leading-relaxed">
+                                    Gymkhana, Indoor facility,<br />
+                                    IIT Dharwad permanent campus
+                                </p>
                             </div>
-                            <div className="flex items-start gap-4">
-                                <div className="bg-blue-50 p-3 rounded-lg">
-                                    <Clock className="w-6 h-6 text-primary" />
-                                </div>
-                                <div>
-                                    <h3 className="font-bold text-gray-900 mb-1">Office Hours</h3>
-                                    <p className="text-gray-600">
-                                        Monday - Friday: 9:00 AM - 5:00 PM<br />
-                                        Saturday: 9:00 AM - 1:00 PM
-                                    </p>
-                                </div>
+                            <div>
+                                <h3 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-2">Office Hours</h3>
+                                <p className="text-lg text-gray-700">
+                                    Mon - Fri: 9:00 AM - 5:00 PM<br />
+                                    Sat: 9:00 AM - 1:00 PM
+                                </p>
                             </div>
                         </div>
-                    </div>
+                    </motion.div>
 
-                    {/* Map Placeholder */}
-                    <div className="bg-gray-200 rounded-xl overflow-hidden h-80 md:h-auto relative">
+                    <motion.div
+                        initial={{ opacity: 0, x: 50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        className="rounded-3xl overflow-hidden shadow-2xl h-[300px] md:h-auto relative group"
+                    >
                         <iframe
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3845.854924853036!2d74.9867863148503!3d15.48843998924248!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bb8d3a4b5b5b5b5%3A0x5b5b5b5b5b5b5b5b!2sIIT%20Dharwad!5e0!3m2!1sen!2sin!4v1625641234567!5m2!1sen!2sin"
                             width="100%"
@@ -109,16 +145,67 @@ const Contact = () => {
                             allowFullScreen=""
                             loading="lazy"
                             title="IIT Dharwad Map"
-                            className="absolute inset-0"
+                            className="absolute inset-0 grayscale group-hover:grayscale-0 transition-all duration-700"
                         ></iframe>
+                    </motion.div>
+                </div>
+
+                {/* Staff Section */}
+                <div className="mb-24">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="text-center mb-16"
+                    >
+                        <h2 className="text-4xl font-black text-gray-900 mb-4">SPORTS COUNCIL</h2>
+                        <div className="w-24 h-1.5 bg-primary mx-auto rounded-full"></div>
+                    </motion.div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {councilMembers.map((member, index) => (
+                            <motion.div
+                                key={index}
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: index * 0.1 }}
+                                whileHover={{ y: -10 }}
+                                className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100"
+                            >
+                                <div className="h-80 overflow-hidden relative">
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent z-10 opacity-100"></div>
+                                    <img
+                                        src={member.image}
+                                        alt={member.name}
+                                        className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110"
+                                    />
+
+                                    <div className="absolute bottom-0 left-0 right-0 p-6 z-20 text-white">
+                                        <h3 className="text-2xl font-bold mb-1 text-white">{member.name}</h3>
+                                        <p className="text-white font-medium tracking-wide text-sm uppercase">{member.role}</p>
+                                    </div>
+                                </div>
+                                <div className="p-6 bg-white relative z-20">
+                                    <a
+                                        href={`mailto:${member.email}`}
+                                        className="flex items-center gap-3 text-gray-600 hover:text-primary transition-colors group/link"
+                                    >
+                                        <div className="w-10 h-10 rounded-full bg-purple-50 flex items-center justify-center text-primary group-hover/link:bg-primary group-hover/link:text-white transition-all">
+                                            <Mail className="w-5 h-5" />
+                                        </div>
+                                        <span className="font-medium text-sm truncate">{member.email}</span>
+                                    </a>
+                                </div>
+                            </motion.div>
+                        ))}
                     </div>
                 </div>
+
+
             </div>
         </div>
     );
 };
-
-// Helper component for Clock icon since it wasn't imported
-import { Clock } from 'lucide-react';
 
 export default Contact;

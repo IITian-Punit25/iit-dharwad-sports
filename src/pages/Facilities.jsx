@@ -1,54 +1,60 @@
 import React from 'react';
 import FacilityCard from '../components/facilities/FacilityCard';
 
+import cricketImg from '../assets/images/cricket.png';
+import badmintonImg from '../assets/images/badminton.png';
+import basketballImg from '../assets/images/basketball.png';
+import gymImg from '../assets/images/gym.png';
+import ttImg from '../assets/images/tt.png';
+
 const facilitiesData = [
     {
         id: 1,
         name: 'Main Cricket Ground',
-        image: 'https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&q=80&w=800',
+        image: cricketImg,
         description: 'A full-sized cricket ground with well-maintained turf wickets and practice nets. Hosts inter-departmental and inter-college matches.',
-        timings: '6:00 AM - 6:30 PM',
-        location: 'Sports Complex, North Campus',
+        timings: '6:00AM - 12:00PM',
+        location: 'Indoor Facility, IIT Dharwad Permanent Campus, Dharwad – 580007',
     },
     {
         id: 2,
         name: 'Football Field',
-        image: 'https://images.unsplash.com/photo-1459865264687-595d652de67e?auto=format&fit=crop&q=80&w=800',
+        image: cricketImg, // Using cricket ground as fallback for now
         description: 'Standard size football field with natural grass surface. Equipped with floodlights for evening practice sessions.',
-        timings: '5:30 AM - 9:00 PM',
-        location: 'Sports Complex, South Campus',
+        timings: '6:00AM - 12:00PM',
+        location: 'Indoor Facility, IIT Dharwad Permanent Campus, Dharwad – 580007',
     },
     {
         id: 3,
         name: 'Indoor Badminton Court',
-        image: 'https://images.unsplash.com/photo-1626224583764-847649623dbb?auto=format&fit=crop&q=80&w=800',
+        image: badmintonImg,
         description: 'Three synthetic courts with professional lighting and non-marking flooring. Requires prior booking.',
-        timings: '6:00 AM - 10:00 PM',
-        location: 'Student Activity Center',
+        timings: '6:00AM - 12:00PM',
+        location: 'Indoor Facility, IIT Dharwad Permanent Campus, Dharwad – 580007',
     },
     {
         id: 4,
         name: 'Basketball Court',
-        image: 'https://images.unsplash.com/photo-1504450758481-7338eba7524a?auto=format&fit=crop&q=80&w=800',
+        image: basketballImg,
         description: 'Outdoor synthetic court with fibreglass backboards. Popular spot for evening pickup games.',
-        timings: '24/7 Access',
-        location: 'Near Hostel Block A',
+        timings: '6:00AM - 12:00PM',
+        location: 'Indoor Facility, IIT Dharwad Permanent Campus, Dharwad – 580007',
     },
     {
         id: 5,
         name: 'Gymnasium',
-        image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=800',
+        image: gymImg,
         description: 'Well-equipped gym with cardio machines, free weights, and strength training equipment. Trainers available.',
-        timings: '5:00 AM - 9:00 AM, 4:00 PM - 10:00 PM',
-        location: 'Student Activity Center, 1st Floor',
+        timings: '6:00AM - 12:00PM',
+        location: 'Indoor Facility, IIT Dharwad Permanent Campus, Dharwad – 580007',
     },
     {
         id: 6,
         name: 'Table Tennis Hall',
-        image: 'https://images.unsplash.com/photo-1534158914592-062992fbe900?auto=format&fit=crop&q=80&w=800',
+        image: ttImg,
         description: 'Dedicated hall with 6 ITTF approved tables and robot machine for practice.',
-        timings: '10:00 AM - 10:00 PM',
-        location: 'Common Room, Hostel Block B',
+        timings: '6:00AM - 12:00PM',
+        location: 'Indoor Facility, IIT Dharwad Permanent Campus, Dharwad – 580007',
     },
 ];
 

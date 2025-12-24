@@ -24,7 +24,7 @@ const LiveUpdates = () => {
                     <h1 className="text-3xl font-bold text-primary">Live Match Updates</h1>
                     <button
                         onClick={refreshScores}
-                        className="flex items-center gap-2 text-accent hover:text-red-700 transition-colors"
+                        className="flex items-center gap-2 text-accent hover:text-primary transition-colors"
                     >
                         <RefreshCw className="w-4 h-4" />
                         <span className="text-sm font-medium">Updated: {lastUpdated.toLocaleTimeString()}</span>
@@ -35,7 +35,7 @@ const LiveUpdates = () => {
                     {matches.map((match) => (
                         <div key={match.id} className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 relative overflow-hidden">
                             {match.status === 'Live' && (
-                                <div className="absolute top-0 right-0 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg animate-pulse">
+                                <div className="absolute top-0 right-0 bg-primary text-white text-xs font-bold px-3 py-1 rounded-bl-lg animate-pulse">
                                     LIVE
                                 </div>
                             )}

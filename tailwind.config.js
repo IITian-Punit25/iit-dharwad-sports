@@ -7,9 +7,9 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#1a365d", // IIT Dharwad Blue (approx)
-        secondary: "#2d3748",
-        accent: "#e53e3e", // Red accent
+        primary: "#1e3a8a", // Blue 900 (Navy)
+        secondary: "#475569", // Slate 600
+        accent: "#d97706", // Amber 600 (Gold)
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],

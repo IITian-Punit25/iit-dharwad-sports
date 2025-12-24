@@ -1,14 +1,15 @@
 import React from 'react';
 import Timeline from '../components/about/Timeline';
 import { Quote } from 'lucide-react';
+import gymImg from '../assets/images/gym.png';
 
 const About = () => {
     return (
         <div className="min-h-screen bg-white">
             {/* Header */}
             <div className="bg-secondary py-20 text-center text-white">
-                <h1 className="text-4xl font-bold mb-4">About Sports Council</h1>
-                <p className="text-xl text-gray-300 max-w-2xl mx-auto px-4">
+                <h1 className="text-4xl font-bold mb-4 text-white">About Sports Council</h1>
+                <p className="text-xl text-gray-200 max-w-2xl mx-auto px-4">
                     Driving the spirit of sportsmanship and holistic development at IIT Dharwad.
                 </p>
             </div>
@@ -50,7 +51,7 @@ const About = () => {
                         <div className="relative z-10 flex flex-col md:flex-row gap-8 items-center">
                             <div className="w-32 h-32 md:w-48 md:h-48 flex-shrink-0 bg-gray-300 rounded-full overflow-hidden border-4 border-white/20">
                                 <img
-                                    src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=400"
+                                    src={gymImg}
                                     alt="Sports Secretary"
                                     className="w-full h-full object-cover"
                                 />

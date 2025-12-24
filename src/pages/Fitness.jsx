@@ -15,7 +15,7 @@ const Fitness = () => {
                 <div className="grid md:grid-cols-3 gap-8">
                     {/* Workout Plans */}
                     <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-8 hover:shadow-md transition-shadow">
-                        <div className="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mb-6 text-primary">
+                        <div className="w-14 h-14 bg-purple-100 rounded-full flex items-center justify-center mb-6 text-primary">
                             <Activity className="w-8 h-8" />
                         </div>
                         <h2 className="text-2xl font-bold text-primary mb-4">Workout Plans</h2>
@@ -30,7 +30,7 @@ const Fitness = () => {
 
                     {/* Nutrition */}
                     <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-8 hover:shadow-md transition-shadow">
-                        <div className="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center mb-6 text-green-600">
+                        <div className="w-14 h-14 bg-purple-100 rounded-full flex items-center justify-center mb-6 text-primary">
                             <Heart className="w-8 h-8" />
                         </div>
                         <h2 className="text-2xl font-bold text-primary mb-4">Nutrition Basics</h2>
@@ -45,7 +45,7 @@ const Fitness = () => {
 
                     {/* Injury Prevention */}
                     <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-8 hover:shadow-md transition-shadow">
-                        <div className="w-14 h-14 bg-yellow-100 rounded-full flex items-center justify-center mb-6 text-yellow-600">
+                        <div className="w-14 h-14 bg-purple-100 rounded-full flex items-center justify-center mb-6 text-secondary">
                             <Zap className="w-8 h-8" />
                         </div>
                         <h2 className="text-2xl font-bold text-primary mb-4">Injury Prevention</h2>

@@ -32,35 +32,35 @@ const Teams = () => {
                 </div>
 
                 {/* Inter-IIT Highlight */}
-                <div className="bg-gradient-to-r from-primary to-blue-900 rounded-2xl p-8 md:p-12 text-white mb-16 shadow-xl relative overflow-hidden">
+                <div className="bg-gradient-to-r from-primary to-secondary rounded-2xl p-8 md:p-12 text-white mb-16 shadow-xl relative overflow-hidden">
                     <div className="absolute top-0 right-0 opacity-10 transform translate-x-1/4 -translate-y-1/4">
                         <Trophy size={400} />
                     </div>
                     <div className="relative z-10">
                         <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
-                            <Trophy className="text-yellow-400" /> Inter-IIT Participation
+                            <Trophy className="text-accent" /> Inter-IIT Participation
                         </h2>
-                        <p className="text-lg text-blue-100 max-w-3xl mb-8 leading-relaxed">
+                        <p className="text-lg text-purple-100 max-w-3xl mb-8 leading-relaxed">
                             IIT Dharwad actively participates in the annual Inter-IIT Sports Meet, the prestigious
                             sports tournament among all IITs. Our contingent has shown remarkable growth and
                             competitive spirit over the years, bringing home laurels and respect.
                         </p>
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                             <div className="bg-white/10 rounded-lg p-4 backdrop-blur-sm">
-                                <div className="text-3xl font-bold text-yellow-400">54th</div>
-                                <div className="text-sm text-blue-200">Inter-IIT Meet</div>
+                                <div className="text-3xl font-bold text-accent">54th</div>
+                                <div className="text-sm text-purple-200">Inter-IIT Meet</div>
                             </div>
                             <div className="bg-white/10 rounded-lg p-4 backdrop-blur-sm">
                                 <div className="text-3xl font-bold text-white">120+</div>
-                                <div className="text-sm text-blue-200">Athletes</div>
+                                <div className="text-sm text-purple-200">Athletes</div>
                             </div>
                             <div className="bg-white/10 rounded-lg p-4 backdrop-blur-sm">
                                 <div className="text-3xl font-bold text-white">12</div>
-                                <div className="text-sm text-blue-200">Sports</div>
+                                <div className="text-sm text-purple-200">Sports</div>
                             </div>
                             <div className="bg-white/10 rounded-lg p-4 backdrop-blur-sm">
                                 <div className="text-3xl font-bold text-white">Top 15</div>
-                                <div className="text-sm text-blue-200">Overall Rank</div>
+                                <div className="text-sm text-purple-200">Overall Rank</div>
                             </div>
                         </div>
                     </div>
@@ -111,7 +111,7 @@ const Teams = () => {
                                             <td className="px-6 py-4 text-gray-600">{item.event}</td>
                                             <td className="px-6 py-4 text-gray-600">{item.team}</td>
                                             <td className="px-6 py-4">
-                                                <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-yellow-100 text-yellow-800">
+                                                <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-purple-100 text-primary">
                                                     <Star className="w-3 h-3 mr-1 fill-current" />
                                                     {item.achievement}
                                                 </span>
