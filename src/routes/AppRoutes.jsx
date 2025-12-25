@@ -13,7 +13,7 @@ import Gallery from '../pages/Gallery';
 import Contact from '../pages/Contact';
 import LiveUpdates from '../pages/LiveUpdates';
 import Fitness from '../pages/Fitness';
-import HallOfFame from '../pages/HallOfFame';
+
 
 const AppRoutes = () => {
     const location = useLocation();
@@ -31,7 +31,7 @@ const AppRoutes = () => {
                 <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
                 <Route path="/live" element={<PageTransition><LiveUpdates /></PageTransition>} />
                 <Route path="/fitness" element={<PageTransition><Fitness /></PageTransition>} />
-                <Route path="/hall-of-fame" element={<PageTransition><HallOfFame /></PageTransition>} />
+
                 <Route path="/sports/:id" element={<PageTransition><Sports /></PageTransition>} />
             </Routes>
         </AnimatePresence>

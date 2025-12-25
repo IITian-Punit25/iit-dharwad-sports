@@ -6,7 +6,7 @@ import footballImg from '../assets/images/cricket.png'; // Using cricket ground 
 export const statsData = [
     { label: 'Students Active', value: 1200, suffix: '+' },
     { label: 'Sports Offered', value: 15, suffix: '' },
-    { label: 'Inter-IIT Medals', value: 45, suffix: '+' },
+    { label: 'Contingent Size', value: 120, suffix: '+' },
     { label: 'Events/Year', value: 20, suffix: '+' },
 ];
 

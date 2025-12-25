@@ -4,7 +4,7 @@ const timelineEvents = [
     { year: '2016', title: 'Establishment', description: 'IIT Dharwad was established, and the first sports committee was formed.' },
     { year: '2017', title: 'First Inter-IIT', description: 'Participated in the Inter-IIT Sports Meet for the first time with a contingent of 50 students.' },
     { year: '2019', title: 'New Grounds', description: 'Inauguration of the new cricket and football grounds at the transit campus.' },
-    { year: '2022', title: 'Gold Medal', description: 'Won the first Gold Medal in Athletics at the Inter-IIT Sports Meet.' },
+
     { year: '2024', title: 'Permanent Campus', description: 'Moved to the permanent campus with state-of-the-art sports complex planning.' },
 ];
 

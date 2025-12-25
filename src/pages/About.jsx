@@ -59,7 +59,7 @@ const About = () => {
                             <div className="text-center md:text-left">
                                 <h2 className="text-2xl font-bold mb-4">Message from the General Secretary</h2>
                                 <p className="text-gray-200 italic text-lg mb-6">
-                                    "Sports is not just about winning medals; it's about building character, resilience, and
+                                    "Sports is not just about winning; it's about building character, resilience, and
                                     friendships that last a lifetime. At IIT Dharwad, we strive to provide every student with
                                     the opportunity to discover their potential on the field."
                                 </p>
