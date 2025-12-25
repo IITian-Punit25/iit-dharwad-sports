@@ -64,8 +64,8 @@ const About = () => {
                                     the opportunity to discover their potential on the field."
                                 </p>
                                 <div>
-                                    <div className="font-bold text-xl">Rahul Sharma</div>
-                                    <div className="text-accent text-sm uppercase tracking-wider">General Secretary, Sports Affairs</div>
+                                    <div className="font-bold text-xl">Vidit Jignesh Parikh</div>
+                                    <div className="text-accent text-sm uppercase tracking-wider">General Secretary, Gymkhana</div>
                                 </div>
                             </div>
                         </div>

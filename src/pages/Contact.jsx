@@ -138,7 +138,7 @@ const Contact = () => {
                         className="rounded-3xl overflow-hidden shadow-2xl h-[300px] md:h-auto relative group"
                     >
                         <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3845.854924853036!2d74.9867863148503!3d15.48843998924248!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bb8d3a4b5b5b5b5%3A0x5b5b5b5b5b5b5b5b!2sIIT%20Dharwad!5e0!3m2!1sen!2sin!4v1625641234567!5m2!1sen!2sin"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3845.854924853036!2d74.9867863148503!3d15.48843998924248!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bb8d3a4b5b5b5b5%3A0x5b5b5b5b5b5b5b5b!2sIndian%20Institute%20of%20Technology%20Dharwad!5e0!3m2!1sen!2sin!4v1625641234567!5m2!1sen!2sin"
                             width="100%"
                             height="100%"
                             style={{ border: 0 }}

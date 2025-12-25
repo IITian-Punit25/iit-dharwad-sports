@@ -33,9 +33,9 @@ const Gallery = () => {
     return (
         <div className="min-h-screen bg-white py-12">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center mb-12">
-                    <h1 className="text-4xl font-bold text-primary mb-4">Photo Gallery</h1>
-                    <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                <div className="text-center mb-16">
+                    <h1 className="text-5xl font-black text-gray-900 mb-6 tracking-tight">Photo Gallery</h1>
+                    <p className="text-xl text-gray-600 max-w-2xl mx-auto font-medium">
                         Glimpses of sporting action and memorable moments at IIT Dharwad.
                     </p>
                 </div>

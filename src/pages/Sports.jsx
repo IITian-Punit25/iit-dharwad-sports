@@ -76,30 +76,32 @@ const Sports = () => {
     return (
         <div className="min-h-screen bg-gray-50">
             {/* Immersive Hero Section */}
-            <div className="relative h-[50vh] overflow-hidden bg-black">
-                <div className="absolute inset-0 opacity-40">
-                    <div className="grid grid-cols-4 h-full w-full animate-pulse-slow">
-                        {allSports.slice(0, 4).map((sport, i) => (
-                            <div key={i} className="h-full w-full bg-cover bg-center grayscale" style={{ backgroundImage: `url(${sport.image})` }} />
-                        ))}
-                    </div>
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-gray-50"></div>
-
-                <div className="relative z-10 flex h-full flex-col items-center justify-center px-4 text-center">
+            <div className="relative h-[60vh] bg-gray-50 flex flex-col justify-center px-4 sm:px-6 lg:px-8 overflow-hidden pt-20 border-b border-gray-200/50">
+                <div className="max-w-7xl mx-auto w-full relative z-10 text-center">
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
                     >
-                        <h1 className="text-6xl md:text-8xl font-black uppercase tracking-tighter text-white mb-2">
-                            Sports
-                            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent text-3xl md:text-5xl mt-2 tracking-normal font-bold">
-                                & Clubs
+                        <div className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm border border-gray-100 mb-8">
+                            <span className="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
+                            <span className="text-sm font-bold text-gray-600 tracking-wide uppercase">IIT Dharwad Sports</span>
+                        </div>
+
+                        <h1 className="text-5xl md:text-7xl font-black text-gray-900 mb-6 leading-tight tracking-tight">
+                            SPORTS <br />
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
+                                & CLUBS
                             </span>
                         </h1>
+
+                        <p className="text-xl text-gray-600 mb-10 leading-relaxed max-w-2xl mx-auto font-medium">
+                            Explore the diverse range of athletic disciplines and student-led clubs at IIT Dharwad.
+                        </p>
                     </motion.div>
                 </div>
+
+                <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-to-tr from-purple-100/30 via-blue-50/30 to-transparent rounded-full blur-3xl opacity-60"></div>
             </div>
 
             {/* Compact Bento Grid Section */}
