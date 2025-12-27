@@ -51,4 +51,9 @@ const eventSchema = new mongoose.Schema({
     }
 });
 
+// Indexes for efficient queries
+eventSchema.index({ sport: 1 });
+eventSchema.index({ category: 1 });
+eventSchema.index({ date: 1 });
+
 module.exports = mongoose.model('Event', eventSchema);

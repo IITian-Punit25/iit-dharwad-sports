@@ -37,4 +37,9 @@ const pointsTableSchema = new mongoose.Schema({
     }
 });
 
+// Indexes for efficient sorting and lookup
+pointsTableSchema.index({ totalPoints: -1 });
+pointsTableSchema.index({ eventsParticipated: -1 });
+
+
 module.exports = mongoose.model('PointsTable', pointsTableSchema);

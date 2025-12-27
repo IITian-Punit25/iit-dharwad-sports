@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Trophy, Users, Calendar, Award, AlertCircle, CheckCircle, Shield, Zap, Target, Medal, Filter, Clock, MapPin, Info, Loader2, RefreshCw } from 'lucide-react';
+import { io } from 'socket.io-client';
 import RegistrationForm from '../components/gc/RegistrationForm';
 import api from '../api';
+import debounce from 'lodash.debounce';
 
 const GeneralChampionship = () => {
     const [scheduleFilter, setScheduleFilter] = useState('All');
@@ -63,6 +65,45 @@ const GeneralChampionship = () => {
 
     useEffect(() => {
         fetchData();
+
+        // Socket.io connection
+
+        const socket = io('http://localhost:5000');
+        const debouncedFetch = debounce(() => {
+            console.log('Debounced fetch triggered');
+            fetchData(false);
+        }, 300);
+
+        socket.on('connect', () => {
+            console.log('Connected to WebSocket server');
+        });
+
+        socket.on('pointsUpdated', () => {
+            console.log('Points updated, fetching new data...');
+            debouncedFetch();
+        });
+
+        socket.on('scoresUpdated', () => {
+            console.log('Scores updated, fetching new data...');
+            debouncedFetch();
+        });
+
+        socket.on('eventsUpdated', () => {
+            console.log('Events updated, fetching new data...');
+            debouncedFetch();
+        });
+
+        // Test live update listener
+        socket.on('testLive', () => {
+            console.log('TestLive event received, fetching data...');
+            debouncedFetch();
+        });
+
+
+
+        return () => {
+            socket.disconnect();
+        };
     }, []);
 
     const containerVariants = {

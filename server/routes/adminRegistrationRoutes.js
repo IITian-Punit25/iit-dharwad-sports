@@ -27,6 +27,7 @@ router.put('/:id', authMiddleware, async (req, res) => {
             { new: true }
         );
         res.json(registration);
+        req.io.emit('registrationsUpdated');
     } catch (err) {
         console.error(err.message);
         res.status(500).send('Server Error');
@@ -40,6 +41,7 @@ router.delete('/:id', authMiddleware, async (req, res) => {
     try {
         await Registration.findByIdAndDelete(req.params.id);
         res.json({ message: 'Registration removed' });
+        req.io.emit('registrationsUpdated');
     } catch (err) {
         console.error(err.message);
         res.status(500).send('Server Error');

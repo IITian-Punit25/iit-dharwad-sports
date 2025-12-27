@@ -49,6 +49,7 @@ router.post('/', authMiddleware, async (req, res) => {
         await Event.findByIdAndUpdate(eventId, { status: 'Completed' });
 
         res.json(scoreEntry);
+        req.io.emit('scoresUpdated');
     } catch (err) {
         console.error(err.message);
         res.status(500).send('Server Error');
@@ -61,6 +62,7 @@ router.post('/', authMiddleware, async (req, res) => {
 router.delete('/:id', authMiddleware, async (req, res) => {
     try {
         await Score.findByIdAndDelete(req.params.id);
+        req.io.emit('scoresUpdated');
         res.json({ message: 'Score removed' });
     } catch (err) {
         console.error(err.message);

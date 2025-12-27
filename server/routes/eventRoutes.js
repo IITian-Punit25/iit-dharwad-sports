@@ -8,11 +8,13 @@ const authMiddleware = require('../middleware/authMiddleware');
 // @access  Public
 router.get('/', async (req, res) => {
     try {
-        const events = await Event.find().sort({ date: 1, time: 1 });
+        const events = await Event.find()
+            .select('sport category stage team1 team2 date time venue status pool createdAt')
+            .sort({ date: 1, time: 1 });
         res.json(events);
     } catch (err) {
         console.error(err.message);
-        res.status(500).send('Server Error');
+        res.status(500).json({ error: 'Server Error' });
     }
 });
 
@@ -23,6 +25,7 @@ router.post('/', authMiddleware, async (req, res) => {
     try {
         const newEvent = new Event(req.body);
         const event = await newEvent.save();
+        req.io.emit('eventsUpdated');
         res.json(event);
     } catch (err) {
         console.error(err.message);
@@ -39,6 +42,7 @@ router.put('/:id', authMiddleware, async (req, res) => {
         if (!event) return res.status(404).json({ message: 'Event not found' });
 
         event = await Event.findByIdAndUpdate(req.params.id, { $set: req.body }, { new: true });
+        req.io.emit('eventsUpdated');
         res.json(event);
     } catch (err) {
         console.error(err.message);
@@ -55,6 +59,7 @@ router.delete('/:id', authMiddleware, async (req, res) => {
         if (!event) return res.status(404).json({ message: 'Event not found' });
 
         await Event.findByIdAndDelete(req.params.id);
+        req.io.emit('eventsUpdated');
         res.json({ message: 'Event removed' });
     } catch (err) {
         console.error(err.message);

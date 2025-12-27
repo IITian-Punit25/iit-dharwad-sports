@@ -28,4 +28,8 @@ const scoreSchema = new mongoose.Schema({
     }
 });
 
+// Indexes for efficient queries
+scoreSchema.index({ eventId: 1 });
+scoreSchema.index({ winner: 1 });
+
 module.exports = mongoose.model('Score', scoreSchema);

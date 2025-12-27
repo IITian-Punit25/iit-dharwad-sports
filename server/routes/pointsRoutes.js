@@ -8,11 +8,13 @@ const authMiddleware = require('../middleware/authMiddleware');
 // @access  Public
 router.get('/', async (req, res) => {
     try {
-        const points = await PointsTable.find().sort({ totalPoints: -1, gold: -1, silver: -1, bronze: -1 });
+        const points = await PointsTable.find()
+            .select('hostel category gold silver bronze totalPoints eventsParticipated')
+            .sort({ totalPoints: -1, gold: -1, silver: -1, bronze: -1 });
         res.json(points);
     } catch (err) {
         console.error(err.message);
-        res.status(500).send('Server Error');
+        res.status(500).json({ error: 'Server Error' });
     }
 });
 
@@ -47,6 +49,7 @@ router.post('/', authMiddleware, async (req, res) => {
         }
 
         res.json(pointsEntry);
+        req.io.emit('pointsUpdated');
     } catch (err) {
         console.error(err.message);
         res.status(500).send('Server Error');
@@ -59,6 +62,7 @@ router.post('/', authMiddleware, async (req, res) => {
 router.delete('/:id', authMiddleware, async (req, res) => {
     try {
         await PointsTable.findByIdAndDelete(req.params.id);
+        req.io.emit('pointsUpdated');
         res.json({ message: 'Entry removed' });
     } catch (err) {
         console.error(err.message);
