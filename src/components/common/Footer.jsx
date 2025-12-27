@@ -48,6 +48,9 @@ const Footer = () => {
 
                 <div className="border-t border-gray-700 mt-12 pt-8 text-center text-sm text-gray-400">
                     <p>&copy; {new Date().getFullYear()} IIT Dharwad Sports Council. All rights reserved.</p>
+                    <div className="mt-2">
+                        <Link to="/admin/login" className="text-gray-600 hover:text-gray-400 text-xs transition-colors">Admin Login</Link>
+                    </div>
                 </div>
             </div>
         </footer>

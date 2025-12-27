@@ -7,7 +7,7 @@ const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const location = useLocation();
 
-    const isHome = location.pathname === '/';
+    const isTransparentPage = location.pathname === '/' || location.pathname === '/general-championship';
 
     useEffect(() => {
         const handleScroll = () => {
@@ -31,23 +31,24 @@ const Navbar = () => {
         { name: 'Events', path: '/events' },
         { name: 'Gallery', path: '/gallery' },
         { name: 'Contact', path: '/contact' },
+        { name: 'General Championship', path: '/general-championship' },
     ];
 
     const isActive = (path) => location.pathname === path;
 
     // Navbar background logic
-    const navbarClasses = `fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isHome && !isScrolled
+    const navbarClasses = `fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isTransparentPage && !isScrolled
         ? 'bg-transparent py-4'
         : 'bg-white/90 backdrop-blur-md shadow-sm py-2'
         }`;
 
     // Link text color logic
     const linkClasses = (path) => {
-        const activeBase = isHome && !isScrolled
+        const activeBase = isTransparentPage && !isScrolled
             ? 'text-primary font-bold relative after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-primary'
             : 'text-primary font-bold bg-blue-50';
 
-        const inactiveBase = isHome && !isScrolled
+        const inactiveBase = isTransparentPage && !isScrolled
             ? 'text-gray-700 hover:text-primary font-medium hover:bg-white/50'
             : 'text-gray-600 hover:text-primary hover:bg-gray-50 font-medium';
 
@@ -85,7 +86,7 @@ const Navbar = () => {
                     <div className="flex items-center md:hidden">
                         <button
                             onClick={() => setIsOpen(!isOpen)}
-                            className={`inline-flex items-center justify-center p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary ${isHome && !isScrolled ? 'text-primary hover:bg-primary/5' : 'text-gray-600 hover:text-primary hover:bg-gray-50'
+                            className={`inline-flex items-center justify-center p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary ${isTransparentPage && !isScrolled ? 'text-primary hover:bg-primary/5' : 'text-gray-600 hover:text-primary hover:bg-gray-50'
                                 }`}
                         >
                             <span className="sr-only">Open main menu</span>
