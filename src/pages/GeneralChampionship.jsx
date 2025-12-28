@@ -252,23 +252,35 @@ const GeneralChampionship = () => {
                                     </tr>
                                 </thead>
                                 <tbody className="divide-y divide-gray-50">
-                                    {currentLeaderboard.map((hostel) => (
-                                        <tr key={hostel.hostel} className={`hover:bg-blue-50/30 transition-colors ${hostel.rank === 1 ? 'bg-yellow-50/30' : ''}`}>
-                                            <td className="px-6 py-4 font-bold text-gray-900">
-                                                <span className={`inline-flex items-center justify-center w-8 h-8 rounded-full ${hostel.rank === 1 ? 'bg-yellow-100 text-yellow-700' :
-                                                    hostel.rank === 2 ? 'bg-gray-100 text-gray-700' :
-                                                        hostel.rank === 3 ? 'bg-amber-100 text-amber-800' : 'text-gray-500'
-                                                    }`}>
-                                                    {hostel.rank}
-                                                </span>
+                                    {currentLeaderboard.length > 0 ? (
+                                        currentLeaderboard.map((hostel) => (
+                                            <tr key={hostel.hostel} className={`hover:bg-blue-50/30 transition-colors ${hostel.rank === 1 ? 'bg-yellow-50/30' : ''}`}>
+                                                <td className="px-6 py-4 font-bold text-gray-900">
+                                                    <span className={`inline-flex items-center justify-center w-8 h-8 rounded-full ${hostel.rank === 1 ? 'bg-yellow-100 text-yellow-700' :
+                                                        hostel.rank === 2 ? 'bg-gray-100 text-gray-700' :
+                                                            hostel.rank === 3 ? 'bg-amber-100 text-amber-800' : 'text-gray-500'
+                                                        }`}>
+                                                        {hostel.rank}
+                                                    </span>
+                                                </td>
+                                                <td className="px-6 py-4 font-medium text-gray-900">{hostel.hostel}</td>
+                                                <td className="px-6 py-4 text-center font-medium text-gray-700">{hostel.gold}</td>
+                                                <td className="px-6 py-4 text-center font-medium text-gray-700">{hostel.silver}</td>
+                                                <td className="px-6 py-4 text-center font-medium text-gray-700">{hostel.bronze}</td>
+                                                <td className="px-6 py-4 text-right font-extrabold text-blue-600 text-lg">{hostel.totalPoints}</td>
+                                            </tr>
+                                        ))
+                                    ) : (
+                                        <tr>
+                                            <td colSpan="6" className="px-6 py-12 text-center">
+                                                <div className="flex flex-col items-center justify-center text-gray-400">
+                                                    <Trophy className="w-12 h-12 mb-3 text-gray-300" />
+                                                    <p className="text-lg font-medium text-gray-500">The arena awaits its champions.</p>
+                                                    <p className="text-sm">Standings coming soon!</p>
+                                                </div>
                                             </td>
-                                            <td className="px-6 py-4 font-medium text-gray-900">{hostel.hostel}</td>
-                                            <td className="px-6 py-4 text-center font-medium text-gray-700">{hostel.gold}</td>
-                                            <td className="px-6 py-4 text-center font-medium text-gray-700">{hostel.silver}</td>
-                                            <td className="px-6 py-4 text-center font-medium text-gray-700">{hostel.bronze}</td>
-                                            <td className="px-6 py-4 text-right font-extrabold text-blue-600 text-lg">{hostel.totalPoints}</td>
                                         </tr>
-                                    ))}
+                                    )}
                                 </tbody>
                             </table>
                         </div>
@@ -284,22 +296,30 @@ const GeneralChampionship = () => {
                             <Zap className="w-5 h-5 text-amber-500 mr-2" /> Recent Results
                         </h3>
                         <div className="space-y-4 max-h-[500px] overflow-y-auto pr-2 custom-scrollbar">
-                            {gcResults.map(result => (
-                                <div key={result.id} className="bg-gray-50 rounded-lg p-4 border border-gray-100 hover:border-blue-200 transition-colors">
-                                    <div className="flex justify-between items-center mb-2">
-                                        <span className="text-xs font-bold text-blue-600 uppercase tracking-wider">{result.sport} ({result.category})</span>
-                                        <span className="text-xs text-gray-500">{result.stage}</span>
+                            {gcResults.length > 0 ? (
+                                gcResults.map(result => (
+                                    <div key={result.id} className="bg-gray-50 rounded-lg p-4 border border-gray-100 hover:border-blue-200 transition-colors">
+                                        <div className="flex justify-between items-center mb-2">
+                                            <span className="text-xs font-bold text-blue-600 uppercase tracking-wider">{result.sport} ({result.category})</span>
+                                            <span className="text-xs text-gray-500">{result.stage}</span>
+                                        </div>
+                                        <div className="flex justify-between items-center font-bold text-gray-800 mb-2">
+                                            <span>{result.team1}</span>
+                                            <span className="bg-white border border-gray-200 px-2 py-0.5 rounded text-sm shadow-sm">{result.score}</span>
+                                            <span>{result.team2}</span>
+                                        </div>
+                                        <div className="text-xs text-green-600 font-medium flex items-center bg-green-50 p-2 rounded">
+                                            <Award className="w-3 h-3 mr-1" /> Winner: {result.winner}
+                                        </div>
                                     </div>
-                                    <div className="flex justify-between items-center font-bold text-gray-800 mb-2">
-                                        <span>{result.team1}</span>
-                                        <span className="bg-white border border-gray-200 px-2 py-0.5 rounded text-sm shadow-sm">{result.score}</span>
-                                        <span>{result.team2}</span>
-                                    </div>
-                                    <div className="text-xs text-green-600 font-medium flex items-center bg-green-50 p-2 rounded">
-                                        <Award className="w-3 h-3 mr-1" /> Winner: {result.winner}
-                                    </div>
+                                ))
+                            ) : (
+                                <div className="flex flex-col items-center justify-center py-12 text-center text-gray-400">
+                                    <Zap className="w-12 h-12 mb-3 text-gray-300" />
+                                    <p className="text-lg font-medium text-gray-500">Silence on the field.</p>
+                                    <p className="text-sm">No recent battles recorded.</p>
                                 </div>
-                            ))}
+                            )}
                         </div>
                     </div>
                 </motion.section>
