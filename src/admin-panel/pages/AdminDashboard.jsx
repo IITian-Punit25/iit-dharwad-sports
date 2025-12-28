@@ -34,29 +34,29 @@ const AdminDashboard = () => {
         fetchStats();
     }, []);
     return (
-        <div className="flex min-h-screen bg-slate-50">
+        <div className="flex min-h-screen bg-slate-50 dark:bg-gray-900 transition-colors duration-200">
             <AdminSidebar />
             <div className="flex-1 ml-64 p-8">
-                <h1 className="text-3xl font-bold text-gray-900 mb-8">Dashboard</h1>
+                <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-8">Dashboard</h1>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-                        <h3 className="text-lg font-semibold text-gray-700 mb-2">Total Events</h3>
-                        <p className="text-3xl font-bold text-blue-600">{loading ? '...' : stats.events}</p>
+                    <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 transition-colors duration-200">
+                        <h3 className="text-lg font-semibold text-gray-700 dark:text-gray-300 mb-2">Total Events</h3>
+                        <p className="text-3xl font-bold text-blue-600 dark:text-blue-400">{loading ? '...' : stats.events}</p>
                     </div>
-                    <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-                        <h3 className="text-lg font-semibold text-gray-700 mb-2">Completed Matches</h3>
-                        <p className="text-3xl font-bold text-green-600">{loading ? '...' : stats.matches}</p>
+                    <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 transition-colors duration-200">
+                        <h3 className="text-lg font-semibold text-gray-700 dark:text-gray-300 mb-2">Completed Matches</h3>
+                        <p className="text-3xl font-bold text-green-600 dark:text-green-400">{loading ? '...' : stats.matches}</p>
                     </div>
-                    <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-                        <h3 className="text-lg font-semibold text-gray-700 mb-2">Registrations</h3>
-                        <p className="text-3xl font-bold text-purple-600">{loading ? '...' : stats.registrations}</p>
+                    <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 transition-colors duration-200">
+                        <h3 className="text-lg font-semibold text-gray-700 dark:text-gray-300 mb-2">Registrations</h3>
+                        <p className="text-3xl font-bold text-purple-600 dark:text-purple-400">{loading ? '...' : stats.registrations}</p>
                     </div>
                 </div>
 
-                <div className="mt-12 bg-white p-8 rounded-xl shadow-sm border border-gray-100 text-center">
-                    <h2 className="text-xl font-bold text-gray-800 mb-4">Welcome to the GC Admin Panel</h2>
-                    <p className="text-gray-600 max-w-2xl mx-auto">
+                <div className="mt-12 bg-white dark:bg-gray-800 p-8 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 text-center transition-colors duration-200">
+                    <h2 className="text-xl font-bold text-gray-800 dark:text-white mb-4">Welcome to the GC Admin Panel</h2>
+                    <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
                         Use the sidebar to manage events, update scores, modify the points table, and view student registrations.
                         All changes made here will be instantly reflected on the public website.
                     </p>
