@@ -38,7 +38,6 @@ export const featuredSports = [
 ];
 
 export const councilMembers = [
-    { role: 'General Secretary', name: 'Vidit Jignesh Parikh', sport: 'Gymkhana' },
     { role: 'Sports Secretary', name: 'TBD', sport: 'Sports Affairs' },
     { role: 'Cricket Captain', name: 'TBD', sport: 'Cricket' },
     { role: 'Football Captain', name: 'TBD', sport: 'Football' },
