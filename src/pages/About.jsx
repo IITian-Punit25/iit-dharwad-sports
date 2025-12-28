@@ -5,9 +5,9 @@ import gymImg from '../assets/images/gym.png';
 
 const About = () => {
     return (
-        <div className="min-h-screen bg-white">
+        <div className="min-h-screen bg-white dark:bg-gray-900">
             {/* Header */}
-            <div className="bg-secondary py-20 text-center text-white">
+            <div className="bg-secondary dark:bg-gray-800 py-20 text-center text-white">
                 <h1 className="text-4xl font-bold mb-4 text-white">About Sports Council</h1>
                 <p className="text-xl text-gray-200 max-w-2xl mx-auto px-4">
                     Driving the spirit of sportsmanship and holistic development at IIT Dharwad.
@@ -17,17 +17,17 @@ const About = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
                 {/* Vision & Mission */}
                 <div className="grid md:grid-cols-2 gap-12 mb-20">
-                    <div className="bg-gray-50 p-8 rounded-2xl border border-gray-100">
-                        <h2 className="text-2xl font-bold text-primary mb-4">Our Vision</h2>
-                        <p className="text-gray-600 leading-relaxed">
+                    <div className="bg-gray-50 dark:bg-gray-800 p-8 rounded-2xl border border-gray-100 dark:border-gray-700">
+                        <h2 className="text-2xl font-bold text-primary dark:text-white mb-4">Our Vision</h2>
+                        <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
                             To create a vibrant sports culture that empowers students to achieve excellence in sports
                             while fostering leadership, teamwork, and physical well-being, contributing to the
                             overall development of the IIT Dharwad community.
                         </p>
                     </div>
-                    <div className="bg-gray-50 p-8 rounded-2xl border border-gray-100">
-                        <h2 className="text-2xl font-bold text-primary mb-4">Our Mission</h2>
-                        <ul className="space-y-3 text-gray-600">
+                    <div className="bg-gray-50 dark:bg-gray-800 p-8 rounded-2xl border border-gray-100 dark:border-gray-700">
+                        <h2 className="text-2xl font-bold text-primary dark:text-white mb-4">Our Mission</h2>
+                        <ul className="space-y-3 text-gray-600 dark:text-gray-300">
                             <li className="flex items-start gap-2">
                                 <span className="text-accent font-bold">•</span>
                                 Provide world-class sports infrastructure and training facilities.
@@ -46,7 +46,7 @@ const About = () => {
 
                 {/* Secretary Message */}
                 <div className="mb-20">
-                    <div className="bg-primary rounded-2xl p-8 md:p-12 text-white relative overflow-hidden">
+                    <div className="bg-primary dark:bg-gray-800 rounded-2xl p-8 md:p-12 text-white relative overflow-hidden">
                         <Quote className="absolute top-8 left-8 h-16 w-16 text-white/10" />
                         <div className="relative z-10 flex flex-col md:flex-row gap-8 items-center">
                             <div className="w-32 h-32 md:w-48 md:h-48 flex-shrink-0 bg-gray-300 rounded-full overflow-hidden border-4 border-white/20">
@@ -74,7 +74,7 @@ const About = () => {
 
                 {/* Timeline */}
                 <div>
-                    <h2 className="text-3xl font-bold text-primary mb-8 text-center">Our Journey</h2>
+                    <h2 className="text-3xl font-bold text-primary dark:text-white mb-8 text-center">Our Journey</h2>
                     <Timeline />
                 </div>
             </div>

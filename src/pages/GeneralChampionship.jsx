@@ -151,7 +151,7 @@ const GeneralChampionship = () => {
     }
 
     return (
-        <div className="min-h-screen bg-slate-50 pb-12 overflow-x-hidden">
+        <div className="min-h-screen bg-slate-50 dark:bg-gray-900 pb-12 overflow-x-hidden">
             {/* Hero Section */}
             <div className="relative bg-blue-900 text-white py-24 mb-16 overflow-hidden">
                 <div className="absolute inset-0 overflow-hidden">
@@ -200,15 +200,15 @@ const GeneralChampionship = () => {
                     id="leaderboard"
                     className="grid lg:grid-cols-3 gap-8"
                 >
-                    <div className="lg:col-span-2 bg-white rounded-2xl shadow-lg p-8 border border-gray-100">
+                    <div className="lg:col-span-2 bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 border border-gray-100 dark:border-gray-700">
                         <div className="flex flex-col md:flex-row md:items-center justify-between mb-6">
                             <div className="flex items-center mb-4 md:mb-0">
                                 <div className="p-3 bg-yellow-100 rounded-xl mr-4">
                                     <Trophy className="h-8 w-8 text-yellow-600" />
                                 </div>
                                 <div>
-                                    <h2 className="text-2xl font-bold text-gray-900">GC Leaderboard</h2>
-                                    <p className="text-sm text-gray-500">Official Standings</p>
+                                    <h2 className="text-2xl font-bold text-gray-900 dark:text-white">GC Leaderboard</h2>
+                                    <p className="text-sm text-gray-500 dark:text-gray-400">Official Standings</p>
                                 </div>
                             </div>
                             <div className="flex items-center space-x-4">
@@ -217,19 +217,19 @@ const GeneralChampionship = () => {
                                     whileTap={{ scale: 0.95 }}
                                     onClick={() => fetchData(false)}
                                     disabled={isRefreshing}
-                                    className="p-2 bg-blue-50 text-blue-600 rounded-lg hover:bg-blue-100 transition-colors"
+                                    className="p-2 bg-blue-50 dark:bg-gray-700 text-blue-600 dark:text-blue-400 rounded-lg hover:bg-blue-100 dark:hover:bg-gray-600 transition-colors"
                                     title="Refresh Live Data"
                                 >
                                     <RefreshCw className={`w-5 h-5 ${isRefreshing ? 'animate-spin' : ''}`} />
                                 </motion.button>
-                                <div className="flex space-x-2 bg-gray-100 p-1 rounded-lg">
+                                <div className="flex space-x-2 bg-gray-100 dark:bg-gray-700 p-1 rounded-lg">
                                     {['Boys', 'Girls'].map(tab => (
                                         <button
                                             key={tab}
                                             onClick={() => setLeaderboardTab(tab)}
                                             className={`px-6 py-2 rounded-md text-sm font-bold transition-all ${leaderboardTab === tab
-                                                ? 'bg-white text-blue-600 shadow-sm'
-                                                : 'text-gray-500 hover:text-gray-700'
+                                                ? 'bg-white dark:bg-gray-600 text-blue-600 dark:text-blue-300 shadow-sm'
+                                                : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200'
                                                 }`}
                                         >
                                             {tab} GC
@@ -241,7 +241,7 @@ const GeneralChampionship = () => {
 
                         <div className="overflow-x-auto">
                             <table className="min-w-full text-sm text-left">
-                                <thead className="text-xs text-gray-500 uppercase bg-gray-50 border-b border-gray-100">
+                                <thead className="text-xs text-gray-500 dark:text-gray-400 uppercase bg-gray-50 dark:bg-gray-700 border-b border-gray-100 dark:border-gray-600">
                                     <tr>
                                         <th className="px-6 py-3 font-bold">Rank</th>
                                         <th className="px-6 py-3 font-bold">Hostel</th>
@@ -251,7 +251,7 @@ const GeneralChampionship = () => {
                                         <th className="px-6 py-3 font-bold text-right text-blue-600">Total Points</th>
                                     </tr>
                                 </thead>
-                                <tbody className="divide-y divide-gray-50">
+                                <tbody className="divide-y divide-gray-50 dark:divide-gray-700">
                                     {currentLeaderboard.length > 0 ? (
                                         currentLeaderboard.map((hostel) => (
                                             <tr key={hostel.hostel} className={`hover:bg-blue-50/30 transition-colors ${hostel.rank === 1 ? 'bg-yellow-50/30' : ''}`}>
@@ -291,14 +291,14 @@ const GeneralChampionship = () => {
                     </div>
 
                     {/* Recent Results Sidebar */}
-                    <div className="bg-white rounded-2xl shadow-lg p-8 border border-gray-100 h-fit">
-                        <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center">
+                    <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 border border-gray-100 dark:border-gray-700 h-fit">
+                        <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-6 flex items-center">
                             <Zap className="w-5 h-5 text-amber-500 mr-2" /> Recent Results
                         </h3>
                         <div className="space-y-4 max-h-[500px] overflow-y-auto pr-2 custom-scrollbar">
                             {gcResults.length > 0 ? (
                                 gcResults.map(result => (
-                                    <div key={result.id} className="bg-gray-50 rounded-lg p-4 border border-gray-100 hover:border-blue-200 transition-colors">
+                                    <div key={result.id} className="bg-gray-50 dark:bg-gray-700 rounded-lg p-4 border border-gray-100 dark:border-gray-600 hover:border-blue-200 dark:hover:border-blue-500 transition-colors">
                                         <div className="flex justify-between items-center mb-2">
                                             <span className="text-xs font-bold text-blue-600 uppercase tracking-wider">{result.sport} ({result.category})</span>
                                             <span className="text-xs text-gray-500">{result.stage}</span>
@@ -331,14 +331,14 @@ const GeneralChampionship = () => {
                     viewport={{ once: true }}
                     variants={containerVariants}
                     id="schedule"
-                    className="bg-white rounded-2xl shadow-lg p-8 border border-gray-100"
+                    className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 border border-gray-100 dark:border-gray-700"
                 >
                     <div className="flex flex-col xl:flex-row xl:items-center justify-between mb-8 gap-4">
                         <div className="flex items-center">
                             <div className="p-3 bg-indigo-100 rounded-xl mr-4">
                                 <Calendar className="h-8 w-8 text-indigo-600" />
                             </div>
-                            <h2 className="text-2xl font-bold text-gray-900">Match Schedule</h2>
+                            <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Match Schedule</h2>
                         </div>
                         <div className="flex flex-wrap gap-2">
                             {['All', 'Boy', 'Girl', 'Pool A', 'Pool B', 'Knockout'].map(filter => (
@@ -347,7 +347,7 @@ const GeneralChampionship = () => {
                                     onClick={() => setScheduleFilter(filter)}
                                     className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${scheduleFilter === filter
                                         ? 'bg-indigo-600 text-white'
-                                        : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                                        : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
                                         }`}
                                 >
                                     {filter === 'All' ? 'All Matches' : filter}
@@ -358,7 +358,7 @@ const GeneralChampionship = () => {
 
                     <div className="overflow-x-auto">
                         <table className="min-w-full text-left text-sm whitespace-nowrap">
-                            <thead className="uppercase tracking-wider border-b-2 border-gray-100 bg-gray-50 text-gray-500 font-semibold">
+                            <thead className="uppercase tracking-wider border-b-2 border-gray-100 dark:border-gray-700 bg-gray-50 dark:bg-gray-700 text-gray-500 dark:text-gray-400 font-semibold">
                                 <tr>
                                     <th className="px-6 py-4">Sport</th>
                                     <th className="px-6 py-4">Stage</th>
@@ -368,20 +368,20 @@ const GeneralChampionship = () => {
                                     <th className="px-6 py-4">Status</th>
                                 </tr>
                             </thead>
-                            <tbody className="divide-y divide-gray-100">
+                            <tbody className="divide-y divide-gray-100 dark:divide-gray-700">
                                 {filteredSchedule.length > 0 ? filteredSchedule.map((match) => (
-                                    <tr key={match.id} className="hover:bg-gray-50 transition-colors">
-                                        <td className="px-6 py-4 font-medium text-gray-900 flex items-center">
+                                    <tr key={match.id} className="hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
+                                        <td className="px-6 py-4 font-medium text-gray-900 dark:text-white flex items-center">
                                             <span className={`w-2 h-2 rounded-full mr-2 ${match.category === 'Boy' ? 'bg-blue-500' : 'bg-pink-500'}`}></span>
                                             {match.sport}
                                         </td>
-                                        <td className="px-6 py-4 text-gray-600">
-                                            <span className="bg-gray-100 px-2 py-1 rounded text-xs font-medium">{match.stage}</span>
+                                        <td className="px-6 py-4 text-gray-600 dark:text-gray-300">
+                                            <span className="bg-gray-100 dark:bg-gray-600 px-2 py-1 rounded text-xs font-medium">{match.stage}</span>
                                         </td>
-                                        <td className="px-6 py-4 text-gray-800 font-medium">
+                                        <td className="px-6 py-4 text-gray-800 dark:text-gray-200 font-medium">
                                             {match.team1} <span className="text-gray-400 mx-1">vs</span> {match.team2}
                                         </td>
-                                        <td className="px-6 py-4 text-gray-600">
+                                        <td className="px-6 py-4 text-gray-600 dark:text-gray-300">
                                             <div className="flex flex-col">
                                                 <span className="font-medium">{match.date}</span>
                                                 <span className="text-xs text-gray-500 flex items-center mt-0.5">
@@ -389,7 +389,7 @@ const GeneralChampionship = () => {
                                                 </span>
                                             </div>
                                         </td>
-                                        <td className="px-6 py-4 text-gray-600">
+                                        <td className="px-6 py-4 text-gray-600 dark:text-gray-300">
                                             <div className="flex items-center">
                                                 <MapPin className="w-3 h-3 mr-1 text-gray-400" /> {match.venue}
                                             </div>
@@ -424,15 +424,15 @@ const GeneralChampionship = () => {
                     id="about"
                     className="relative"
                 >
-                    <div className="absolute top-0 left-0 w-full h-full bg-white rounded-3xl shadow-xl -skew-y-1 transform origin-top-left z-0"></div>
-                    <div className="relative z-10 bg-white rounded-2xl shadow-lg p-8 md:p-12 border border-gray-100">
+                    <div className="absolute top-0 left-0 w-full h-full bg-white dark:bg-gray-800 rounded-3xl shadow-xl -skew-y-1 transform origin-top-left z-0"></div>
+                    <div className="relative z-10 bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 md:p-12 border border-gray-100 dark:border-gray-700">
                         <motion.div variants={itemVariants} className="flex items-center mb-6">
                             <div className="p-3 bg-blue-100 rounded-xl mr-4">
                                 <Target className="h-8 w-8 text-blue-600" />
                             </div>
-                            <h2 className="text-3xl font-bold text-gray-900">About General Championship</h2>
+                            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">About General Championship</h2>
                         </motion.div>
-                        <motion.p variants={itemVariants} className="text-gray-600 text-lg leading-relaxed">
+                        <motion.p variants={itemVariants} className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
                             The General Championship (GC) is the premier annual inter-hostel sports competition organized by the IIT Dharwad Sports Council.
                             It brings together the best athletes from all hostels to compete for the coveted GC Trophy.
                             More than just a tournament, the GC is a celebration of sportsmanship, hostel spirit, and holistic development.
@@ -447,26 +447,26 @@ const GeneralChampionship = () => {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
-                        className="bg-white rounded-2xl shadow-lg p-8 border-l-4 border-green-500 hover:shadow-xl transition-shadow duration-300"
+                        className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 border-l-4 border-green-500 hover:shadow-xl transition-shadow duration-300"
                     >
                         <div className="flex items-center mb-6">
                             <div className="p-3 bg-green-100 rounded-xl mr-4">
                                 <Users className="h-8 w-8 text-green-600" />
                             </div>
-                            <h2 className="text-2xl font-bold text-gray-900">Competition Structure</h2>
+                            <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Competition Structure</h2>
                         </div>
-                        <ul className="space-y-4 text-gray-600">
+                        <ul className="space-y-4 text-gray-600 dark:text-gray-300">
                             <li className="flex items-start group">
                                 <CheckCircle className="h-6 w-6 text-green-500 mr-3 mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform" />
-                                <span><strong className="text-gray-900">Boys GC:</strong> 10 Hostels divided into Pool A & Pool B. Top 4 from each pool advance to Knockouts.</span>
+                                <span><strong className="text-gray-900 dark:text-white">Boys GC:</strong> 10 Hostels divided into Pool A & Pool B. Top 4 from each pool advance to Knockouts.</span>
                             </li>
                             <li className="flex items-start group">
                                 <CheckCircle className="h-6 w-6 text-green-500 mr-3 mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform" />
-                                <span><strong className="text-gray-900">Girls GC:</strong> 4 Hostels compete in a Round-Robin League format followed by Finals.</span>
+                                <span><strong className="text-gray-900 dark:text-white">Girls GC:</strong> 4 Hostels compete in a Round-Robin League format followed by Finals.</span>
                             </li>
                             <li className="flex items-start group">
                                 <CheckCircle className="h-6 w-6 text-green-500 mr-3 mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform" />
-                                <span><strong className="text-gray-900">Stages:</strong> League Matches -&gt; Quarter Finals -&gt; Semi Finals -&gt; Grand Finale.</span>
+                                <span><strong className="text-gray-900 dark:text-white">Stages:</strong> League Matches -&gt; Quarter Finals -&gt; Semi Finals -&gt; Grand Finale.</span>
                             </li>
                         </ul>
                     </motion.div>
@@ -476,41 +476,41 @@ const GeneralChampionship = () => {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
-                        className="bg-white rounded-2xl shadow-lg p-8 border-l-4 border-amber-500 hover:shadow-xl transition-shadow duration-300"
+                        className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 border-l-4 border-amber-500 hover:shadow-xl transition-shadow duration-300"
                     >
                         <div className="flex items-center mb-6">
                             <div className="p-3 bg-amber-100 rounded-xl mr-4">
                                 <Award className="h-8 w-8 text-amber-600" />
                             </div>
-                            <h2 className="text-2xl font-bold text-gray-900">Points System</h2>
+                            <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Points System</h2>
                         </div>
-                        <p className="text-gray-600 mb-6">
+                        <p className="text-gray-600 dark:text-gray-300 mb-6">
                             The GC Trophy is awarded to the hostel with the highest cumulative points across all sports.
                         </p>
-                        <div className="overflow-hidden rounded-xl border border-gray-100">
-                            <table className="min-w-full text-sm text-left text-gray-600">
-                                <thead className="text-xs text-gray-700 uppercase bg-amber-50/50">
+                        <div className="overflow-hidden rounded-xl border border-gray-100 dark:border-gray-700">
+                            <table className="min-w-full text-sm text-left text-gray-600 dark:text-gray-300">
+                                <thead className="text-xs text-gray-700 dark:text-gray-200 uppercase bg-amber-50/50 dark:bg-amber-900/20">
                                     <tr>
                                         <th className="px-6 py-4 font-bold">Position</th>
                                         <th className="px-6 py-4 font-bold text-right">Points Awarded</th>
                                     </tr>
                                 </thead>
-                                <tbody className="divide-y divide-gray-100">
-                                    <tr className="bg-white hover:bg-amber-50/30 transition-colors">
+                                <tbody className="divide-y divide-gray-100 dark:divide-gray-700">
+                                    <tr className="bg-white dark:bg-gray-800 hover:bg-amber-50/30 dark:hover:bg-amber-900/10 transition-colors">
                                         <td className="px-6 py-4 font-medium flex items-center"><Medal className="w-4 h-4 text-yellow-500 mr-2" /> 1st Place (Winner)</td>
-                                        <td className="px-6 py-4 text-right font-bold text-gray-900">10 Points</td>
+                                        <td className="px-6 py-4 text-right font-bold text-gray-900 dark:text-white">10 Points</td>
                                     </tr>
-                                    <tr className="bg-white hover:bg-amber-50/30 transition-colors">
+                                    <tr className="bg-white dark:bg-gray-800 hover:bg-amber-50/30 dark:hover:bg-amber-900/10 transition-colors">
                                         <td className="px-6 py-4 font-medium flex items-center"><Medal className="w-4 h-4 text-gray-400 mr-2" /> 2nd Place (Runner-up)</td>
-                                        <td className="px-6 py-4 text-right font-bold text-gray-900">6 Points</td>
+                                        <td className="px-6 py-4 text-right font-bold text-gray-900 dark:text-white">6 Points</td>
                                     </tr>
-                                    <tr className="bg-white hover:bg-amber-50/30 transition-colors">
+                                    <tr className="bg-white dark:bg-gray-800 hover:bg-amber-50/30 dark:hover:bg-amber-900/10 transition-colors">
                                         <td className="px-6 py-4 font-medium flex items-center"><Medal className="w-4 h-4 text-amber-700 mr-2" /> 3rd Place</td>
-                                        <td className="px-6 py-4 text-right font-bold text-gray-900">4 Points</td>
+                                        <td className="px-6 py-4 text-right font-bold text-gray-900 dark:text-white">4 Points</td>
                                     </tr>
-                                    <tr className="bg-white hover:bg-amber-50/30 transition-colors">
+                                    <tr className="bg-white dark:bg-gray-800 hover:bg-amber-50/30 dark:hover:bg-amber-900/10 transition-colors">
                                         <td className="px-6 py-4 font-medium">4th Place</td>
-                                        <td className="px-6 py-4 text-right font-bold text-gray-900">2 Points</td>
+                                        <td className="px-6 py-4 text-right font-bold text-gray-900 dark:text-white">2 Points</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -525,7 +525,7 @@ const GeneralChampionship = () => {
                     viewport={{ once: true, margin: "-50px" }}
                     variants={containerVariants}
                     id="sports"
-                    className="bg-white rounded-3xl shadow-xl p-8 md:p-12 border border-gray-100 relative overflow-hidden"
+                    className="bg-white dark:bg-gray-800 rounded-3xl shadow-xl p-8 md:p-12 border border-gray-100 dark:border-gray-700 relative overflow-hidden"
                 >
                     <div className="absolute top-0 right-0 w-64 h-64 bg-purple-50 rounded-full -mr-32 -mt-32 opacity-50 blur-3xl"></div>
                     <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-50 rounded-full -ml-32 -mb-32 opacity-50 blur-3xl"></div>
@@ -534,21 +534,21 @@ const GeneralChampionship = () => {
                         <div className="p-3 bg-purple-100 rounded-xl mr-4">
                             <Calendar className="h-8 w-8 text-purple-600" />
                         </div>
-                        <h2 className="text-3xl font-bold text-gray-900">Sports & Events</h2>
+                        <h2 className="text-3xl font-bold text-gray-900 dark:text-white">Sports & Events</h2>
                     </motion.div>
 
                     <div className="grid md:grid-cols-2 gap-12 relative z-10">
                         <motion.div variants={itemVariants}>
-                            <h3 className="text-xl font-bold text-gray-800 mb-6 flex items-center">
+                            <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-6 flex items-center">
                                 <span className="w-1.5 h-8 bg-blue-500 rounded-full mr-3"></span>
                                 Men's Events
                             </h3>
                             <div className="grid grid-cols-2 gap-3">
                                 {['Athletics', 'Badminton', 'Basketball', 'Chess', 'Cricket', 'Football', 'Squash', 'Table Tennis', 'Volleyball', 'Weightlifting', 'Powerlifting', 'Yoga'].map(sport => (
                                     <motion.div
-                                        whileHover={{ scale: 1.05, backgroundColor: "#eff6ff" }}
+                                        whileHover={{ scale: 1.05 }}
                                         key={sport}
-                                        className="flex items-center text-gray-700 bg-gray-50 p-3 rounded-lg border border-gray-100 cursor-default transition-colors"
+                                        className="flex items-center text-gray-700 dark:text-gray-300 bg-gray-50 dark:bg-gray-700 hover:bg-blue-50 dark:hover:bg-gray-600 p-3 rounded-lg border border-gray-100 dark:border-gray-600 cursor-default transition-colors"
                                     >
                                         <span className="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
                                         <span className="font-medium">{sport}</span>
@@ -557,16 +557,16 @@ const GeneralChampionship = () => {
                             </div>
                         </motion.div>
                         <motion.div variants={itemVariants}>
-                            <h3 className="text-xl font-bold text-gray-800 mb-6 flex items-center">
+                            <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-6 flex items-center">
                                 <span className="w-1.5 h-8 bg-pink-500 rounded-full mr-3"></span>
                                 Women's Events
                             </h3>
                             <div className="grid grid-cols-2 gap-3">
                                 {['Athletics', 'Badminton', 'Basketball', 'Chess', 'Cricket', 'Squash', 'Table Tennis', 'Volleyball', 'Powerlifting', 'Yoga'].map(sport => (
                                     <motion.div
-                                        whileHover={{ scale: 1.05, backgroundColor: "#fdf2f8" }}
+                                        whileHover={{ scale: 1.05 }}
                                         key={sport}
-                                        className="flex items-center text-gray-700 bg-gray-50 p-3 rounded-lg border border-gray-100 cursor-default transition-colors"
+                                        className="flex items-center text-gray-700 dark:text-gray-300 bg-gray-50 dark:bg-gray-700 hover:bg-pink-50 dark:hover:bg-gray-600 p-3 rounded-lg border border-gray-100 dark:border-gray-600 cursor-default transition-colors"
                                     >
                                         <span className="w-2 h-2 bg-pink-500 rounded-full mr-3"></span>
                                         <span className="font-medium">{sport}</span>
@@ -587,15 +587,15 @@ const GeneralChampionship = () => {
                             viewport={{ once: true }}
                             transition={{ delay: 0.2 }}
                             id="rules"
-                            className="bg-white rounded-2xl shadow-lg p-6 border-t-4 border-red-500"
+                            className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 border-t-4 border-red-500"
                         >
                             <div className="flex items-center mb-6">
                                 <div className="p-2 bg-red-100 rounded-lg mr-3">
                                     <AlertCircle className="h-6 w-6 text-red-600" />
                                 </div>
-                                <h2 className="text-xl font-bold text-gray-900">Eligibility Rules</h2>
+                                <h2 className="text-xl font-bold text-gray-900 dark:text-white">Eligibility Rules</h2>
                             </div>
-                            <ul className="space-y-4 text-sm text-gray-600">
+                            <ul className="space-y-4 text-sm text-gray-600 dark:text-gray-300">
                                 <li className="flex items-start">
                                     <span className="text-red-500 mr-2 font-bold text-lg">•</span>
                                     <span>Must use <strong>@iitdh.ac.in</strong> email ID.</span>
@@ -625,18 +625,18 @@ const GeneralChampionship = () => {
                             viewport={{ once: true }}
                             transition={{ delay: 0.4 }}
                             id="governance"
-                            className="bg-white rounded-2xl shadow-lg p-6 border-t-4 border-gray-600"
+                            className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 border-t-4 border-gray-600"
                         >
                             <div className="flex items-center mb-6">
                                 <div className="p-2 bg-gray-100 rounded-lg mr-3">
                                     <Shield className="h-6 w-6 text-gray-600" />
                                 </div>
-                                <h2 className="text-xl font-bold text-gray-900">Governance</h2>
+                                <h2 className="text-xl font-bold text-gray-900 dark:text-white">Governance</h2>
                             </div>
-                            <p className="text-sm text-gray-600 mb-3 leading-relaxed">
+                            <p className="text-sm text-gray-600 dark:text-gray-300 mb-3 leading-relaxed">
                                 Managed by the Sports Council. Referees' decisions are final and binding.
                             </p>
-                            <p className="text-sm text-gray-600 leading-relaxed">
+                            <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
                                 <strong>Discipline:</strong> Unsporting behavior leads to immediate disqualification.
                             </p>
                         </motion.section>

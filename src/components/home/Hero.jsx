@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 
 const Hero = () => {
     return (
-        <div className="relative min-h-screen flex items-center bg-gray-50 overflow-hidden pt-20">
+        <div className="relative min-h-screen flex items-center bg-gray-50 dark:bg-gray-900 overflow-hidden pt-20">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
                 <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
 
@@ -16,19 +16,19 @@ const Hero = () => {
                         transition={{ duration: 0.8 }}
                         className="flex-1 text-center lg:text-left z-10"
                     >
-                        <div className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm border border-gray-100 mb-8">
+                        <div className="inline-flex items-center gap-2 px-4 py-2 bg-white dark:bg-gray-800 rounded-full shadow-sm border border-gray-100 dark:border-gray-700 mb-8">
                             <span className="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
-                            <span className="text-sm font-bold text-gray-600 tracking-wide uppercase">IIT Dharwad Sports</span>
+                            <span className="text-sm font-bold text-gray-600 dark:text-gray-300 tracking-wide uppercase">IIT Dharwad Sports</span>
                         </div>
 
-                        <h1 className="text-5xl md:text-7xl font-black text-gray-900 mb-6 leading-tight tracking-tight">
+                        <h1 className="text-5xl md:text-7xl font-black text-gray-900 dark:text-white mb-6 leading-tight tracking-tight">
                             ELEVATE <br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
                                 YOUR GAME
                             </span>
                         </h1>
 
-                        <p className="text-xl text-gray-600 mb-10 leading-relaxed max-w-xl mx-auto lg:mx-0 font-medium">
+                        <p className="text-xl text-gray-600 dark:text-gray-300 mb-10 leading-relaxed max-w-xl mx-auto lg:mx-0 font-medium">
                             Experience the thrill of competition and the bond of community.
                             Join us in building a legacy of athletic excellence.
                         </p>
@@ -42,7 +42,7 @@ const Hero = () => {
                             </Link>
                             <Link
                                 to="/facilities"
-                                className="px-8 py-4 bg-white text-gray-700 font-bold rounded-xl shadow-sm border border-gray-200 hover:bg-gray-50 hover:border-gray-300 transition-all duration-300"
+                                className="px-8 py-4 bg-white dark:bg-gray-800 text-gray-700 dark:text-white font-bold rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-600 transition-all duration-300"
                             >
                                 View Facilities
                             </Link>
@@ -50,13 +50,13 @@ const Hero = () => {
 
                         <div className="mt-12 flex items-center justify-center lg:justify-start gap-8 text-gray-500">
                             <div className="flex items-center gap-2">
-                                <div className="font-bold text-2xl text-gray-900">15+</div>
-                                <div className="text-sm font-medium">Sports</div>
+                                <div className="font-bold text-2xl text-gray-900 dark:text-white">15+</div>
+                                <div className="text-sm font-medium dark:text-gray-400">Sports</div>
                             </div>
-                            <div className="w-px h-8 bg-gray-300"></div>
+                            <div className="w-px h-8 bg-gray-300 dark:bg-gray-700"></div>
                             <div className="flex items-center gap-2">
-                                <div className="font-bold text-2xl text-gray-900">500+</div>
-                                <div className="text-sm font-medium">Athletes</div>
+                                <div className="font-bold text-2xl text-gray-900 dark:text-white">500+</div>
+                                <div className="text-sm font-medium dark:text-gray-400">Athletes</div>
                             </div>
                         </div>
                     </motion.div>

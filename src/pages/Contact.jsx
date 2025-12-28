@@ -71,7 +71,7 @@ const facilities = [
 
 const Contact = () => {
     return (
-        <div className="min-h-screen bg-white">
+        <div className="min-h-screen bg-white dark:bg-gray-900">
             {/* Hero Section with Parallax */}
             <div className="relative h-[60vh] overflow-hidden">
                 <div
@@ -107,23 +107,23 @@ const Contact = () => {
                         initial={{ opacity: 0, x: -50 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
-                        className="bg-white/95 backdrop-blur-xl p-8 md:p-10 rounded-3xl shadow-2xl border border-white/20 flex flex-col justify-center min-h-[300px]"
+                        className="bg-white/95 dark:bg-gray-800/95 backdrop-blur-xl p-8 md:p-10 rounded-3xl shadow-2xl border border-white/20 dark:border-gray-700 flex flex-col justify-center min-h-[300px]"
                     >
-                        <h2 className="text-3xl font-bold text-gray-900 mb-8 flex items-center gap-3">
+                        <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8 flex items-center gap-3">
                             <MapPin className="w-8 h-8 text-primary" />
                             Visit Us
                         </h2>
                         <div className="space-y-6">
                             <div>
-                                <h3 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-2">Location</h3>
-                                <p className="text-xl text-gray-800 font-medium leading-relaxed">
+                                <h3 className="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2">Location</h3>
+                                <p className="text-xl text-gray-800 dark:text-gray-200 font-medium leading-relaxed">
                                     Gymkhana, Indoor facility,<br />
                                     IIT Dharwad permanent campus
                                 </p>
                             </div>
                             <div>
-                                <h3 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-2">Office Hours</h3>
-                                <p className="text-lg text-gray-700">
+                                <h3 className="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2">Office Hours</h3>
+                                <p className="text-lg text-gray-700 dark:text-gray-300">
                                     Mon - Fri: 9:00 AM - 5:00 PM<br />
                                     Sat: 9:00 AM - 1:00 PM
                                 </p>
@@ -158,7 +158,7 @@ const Contact = () => {
                         viewport={{ once: true }}
                         className="text-center mb-16"
                     >
-                        <h2 className="text-4xl font-black text-gray-900 mb-4">SPORTS COUNCIL</h2>
+                        <h2 className="text-4xl font-black text-gray-900 dark:text-white mb-4">SPORTS COUNCIL</h2>
                         <div className="w-24 h-1.5 bg-primary mx-auto rounded-full"></div>
                     </motion.div>
 
@@ -171,7 +171,7 @@ const Contact = () => {
                                 viewport={{ once: true }}
                                 transition={{ delay: index * 0.1 }}
                                 whileHover={{ y: -10 }}
-                                className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100"
+                                className="group bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-700"
                             >
                                 <div className="h-80 overflow-hidden relative">
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent z-10 opacity-100"></div>
@@ -186,12 +186,12 @@ const Contact = () => {
                                         <p className="text-white font-medium tracking-wide text-sm uppercase">{member.role}</p>
                                     </div>
                                 </div>
-                                <div className="p-6 bg-white relative z-20">
+                                <div className="p-6 bg-white dark:bg-gray-800 relative z-20">
                                     <a
                                         href={`mailto:${member.email}`}
-                                        className="flex items-center gap-3 text-gray-600 hover:text-primary transition-colors group/link"
+                                        className="flex items-center gap-3 text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-white transition-colors group/link"
                                     >
-                                        <div className="w-10 h-10 rounded-full bg-purple-50 flex items-center justify-center text-primary group-hover/link:bg-primary group-hover/link:text-white transition-all">
+                                        <div className="w-10 h-10 rounded-full bg-purple-50 dark:bg-purple-900/20 flex items-center justify-center text-primary dark:text-purple-300 group-hover/link:bg-primary group-hover/link:text-white transition-all">
                                             <Mail className="w-5 h-5" />
                                         </div>
                                         <span className="font-medium text-sm truncate">{member.email}</span>

@@ -60,11 +60,11 @@ const facilitiesData = [
 
 const Facilities = () => {
     return (
-        <div className="min-h-screen bg-gray-50 py-12">
+        <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-12">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
-                    <h1 className="text-4xl font-bold text-primary mb-4">Sports Facilities</h1>
-                    <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                    <h1 className="text-4xl font-bold text-primary dark:text-white mb-4">Sports Facilities</h1>
+                    <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
                         World-class infrastructure to support your athletic journey.
                     </p>
                 </div>

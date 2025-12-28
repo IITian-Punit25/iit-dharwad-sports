@@ -31,11 +31,11 @@ const Gallery = () => {
         : galleryImages.filter(img => img.category === filter);
 
     return (
-        <div className="min-h-screen bg-white py-12">
+        <div className="min-h-screen bg-white dark:bg-gray-900 py-12">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
-                    <h1 className="text-5xl font-black text-gray-900 mb-6 tracking-tight">Photo Gallery</h1>
-                    <p className="text-xl text-gray-600 max-w-2xl mx-auto font-medium">
+                    <h1 className="text-5xl font-black text-gray-900 dark:text-white mb-6 tracking-tight">Photo Gallery</h1>
+                    <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto font-medium">
                         Glimpses of sporting action and memorable moments at IIT Dharwad.
                     </p>
                 </div>
@@ -48,7 +48,7 @@ const Gallery = () => {
                             onClick={() => setFilter(category)}
                             className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${filter === category
                                 ? 'bg-primary text-white'
-                                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                                : 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
                                 }`}
                         >
                             {category}

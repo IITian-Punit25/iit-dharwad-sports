@@ -3,7 +3,7 @@ import { Clock, MapPin } from 'lucide-react';
 
 const FacilityCard = ({ facility }) => {
     return (
-        <div className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 flex flex-col md:flex-row h-full">
+        <div className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 dark:border-gray-700 flex flex-col md:flex-row h-full">
             <div className="md:w-2/5 h-48 md:h-auto relative overflow-hidden">
                 <img
                     src={facility.image}
@@ -13,18 +13,18 @@ const FacilityCard = ({ facility }) => {
             </div>
             <div className="p-6 md:w-3/5 flex flex-col justify-between">
                 <div>
-                    <h3 className="text-xl font-bold text-primary mb-2">{facility.name}</h3>
-                    <p className="text-gray-600 mb-4 text-sm leading-relaxed">
+                    <h3 className="text-xl font-bold text-primary dark:text-white mb-2">{facility.name}</h3>
+                    <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm leading-relaxed">
                         {facility.description}
                     </p>
                 </div>
 
-                <div className="space-y-2 pt-4 border-t border-gray-100">
-                    <div className="flex items-center text-sm text-gray-500">
+                <div className="space-y-2 pt-4 border-t border-gray-100 dark:border-gray-700">
+                    <div className="flex items-center text-sm text-gray-500 dark:text-gray-400">
                         <Clock className="h-4 w-4 mr-2 text-accent" />
                         <span>{facility.timings}</span>
                     </div>
-                    <div className="flex items-center text-sm text-gray-500">
+                    <div className="flex items-center text-sm text-gray-500 dark:text-gray-400">
                         <MapPin className="h-4 w-4 mr-2 text-accent" />
                         <span>{facility.location}</span>
                     </div>

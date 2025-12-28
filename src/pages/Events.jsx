@@ -46,23 +46,23 @@ const Events = () => {
     const filteredEvents = events.filter(event => event.category === activeTab);
 
     return (
-        <div className="min-h-screen bg-gray-50 py-12">
+        <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-12">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-12">
-                    <h1 className="text-4xl font-bold text-primary mb-4">Events & Tournaments</h1>
-                    <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                    <h1 className="text-4xl font-bold text-primary dark:text-white mb-4">Events & Tournaments</h1>
+                    <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
                         Stay updated with the latest sports activities and competitions on campus.
                     </p>
                 </div>
 
                 {/* Tabs */}
                 <div className="flex justify-center mb-12">
-                    <div className="bg-white p-1 rounded-lg shadow-sm border border-gray-200 inline-flex">
+                    <div className="bg-white dark:bg-gray-800 p-1 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 inline-flex">
                         <button
                             onClick={() => setActiveTab('Upcoming')}
                             className={`px-6 py-2 rounded-md text-sm font-medium transition-all duration-200 ${activeTab === 'Upcoming'
                                 ? 'bg-primary text-white shadow-sm'
-                                : 'text-gray-600 hover:text-primary hover:bg-gray-50'
+                                : 'text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-700'
                                 }`}
                         >
                             Upcoming Events
@@ -71,7 +71,7 @@ const Events = () => {
                             onClick={() => setActiveTab('Past')}
                             className={`px-6 py-2 rounded-md text-sm font-medium transition-all duration-200 ${activeTab === 'Past'
                                 ? 'bg-primary text-white shadow-sm'
-                                : 'text-gray-600 hover:text-primary hover:bg-gray-50'
+                                : 'text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-700'
                                 }`}
                         >
                             Past Events
@@ -84,10 +84,10 @@ const Events = () => {
                     {filteredEvents.map((event) => (
                         <div
                             key={event.id}
-                            className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-all duration-300 flex flex-col md:flex-row gap-6"
+                            className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-md transition-all duration-300 flex flex-col md:flex-row gap-6"
                         >
                             {/* Date Box */}
-                            <div className="flex-shrink-0 flex flex-col items-center justify-center bg-purple-50 text-primary rounded-lg w-24 h-24 border border-purple-100">
+                            <div className="flex-shrink-0 flex flex-col items-center justify-center bg-purple-50 dark:bg-purple-900/20 text-primary dark:text-purple-300 rounded-lg w-24 h-24 border border-purple-100 dark:border-purple-800">
                                 <span className="text-3xl font-bold">{new Date(event.date).getDate()}</span>
                                 <span className="text-sm font-medium uppercase">
                                     {new Date(event.date).toLocaleString('default', { month: 'short' })}
@@ -95,12 +95,12 @@ const Events = () => {
                             </div>
 
                             <div className="flex-grow">
-                                <h3 className="text-xl font-bold text-primary mb-2">{event.title}</h3>
-                                <p className="text-gray-600 mb-4 text-sm leading-relaxed">
+                                <h3 className="text-xl font-bold text-primary dark:text-white mb-2">{event.title}</h3>
+                                <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm leading-relaxed">
                                     {event.description}
                                 </p>
 
-                                <div className="flex flex-wrap gap-4 text-sm text-gray-500">
+                                <div className="flex flex-wrap gap-4 text-sm text-gray-500 dark:text-gray-400">
                                     <div className="flex items-center">
                                         <Clock className="h-4 w-4 mr-1 text-accent" />
                                         {event.time}

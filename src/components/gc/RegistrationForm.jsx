@@ -95,12 +95,12 @@ const RegistrationForm = () => {
     };
 
     return (
-        <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100 relative">
+        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden border border-gray-100 dark:border-gray-700 relative">
             <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-blue-500 to-indigo-600"></div>
             <div className="p-8 md:p-10">
                 <div className="text-center mb-10">
-                    <h3 className="text-3xl font-extrabold text-gray-900 tracking-tight">Register for GC 2025</h3>
-                    <p className="mt-3 text-gray-500 text-lg">Join the legacy. Represent your hostel.</p>
+                    <h3 className="text-3xl font-extrabold text-gray-900 dark:text-white tracking-tight">Register for GC 2025</h3>
+                    <p className="mt-3 text-gray-500 dark:text-gray-400 text-lg">Join the legacy. Represent your hostel.</p>
                 </div>
 
                 {error && (
@@ -119,7 +119,7 @@ const RegistrationForm = () => {
                     {/* Full Name */}
                     {/* Full Name */}
                     <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-1">Full Name</label>
+                        <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">Full Name</label>
                         <input
                             type="text"
                             name="fullName"
@@ -127,14 +127,14 @@ const RegistrationForm = () => {
                             value={formData.fullName}
                             onChange={handleChange}
                             placeholder="Enter your full name"
-                            className="mt-1 block w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                            className="mt-1 block w-full px-4 py-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500"
                         />
                     </div>
 
                     {/* Roll Number */}
                     {/* Roll Number */}
                     <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-1">Roll Number</label>
+                        <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">Roll Number</label>
                         <input
                             type="text"
                             name="rollNumber"
@@ -142,14 +142,14 @@ const RegistrationForm = () => {
                             value={formData.rollNumber}
                             onChange={handleChange}
                             placeholder="e.g., 21001001"
-                            className="mt-1 block w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                            className="mt-1 block w-full px-4 py-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500"
                         />
                     </div>
 
                     {/* Email */}
                     {/* Email */}
                     <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-1">College Email ID</label>
+                        <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">College Email ID</label>
                         <input
                             type="email"
                             name="email"
@@ -157,20 +157,20 @@ const RegistrationForm = () => {
                             value={formData.email}
                             onChange={handleChange}
                             placeholder="example@iitdh.ac.in"
-                            className="mt-1 block w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                            className="mt-1 block w-full px-4 py-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500"
                         />
                     </div>
 
                     {/* Gender & Hostel Grid */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
-                            <label className="block text-sm font-medium text-gray-700">Gender</label>
+                            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">Gender</label>
                             <select
                                 name="gender"
                                 required
                                 value={formData.gender}
                                 onChange={handleChange}
-                                className="mt-1 block w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                                className="mt-1 block w-full px-4 py-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 text-gray-900 dark:text-white"
                             >
                                 <option value="">Select Gender</option>
                                 <option value="Boy">Boy</option>
@@ -179,13 +179,13 @@ const RegistrationForm = () => {
                         </div>
 
                         <div>
-                            <label className="block text-sm font-medium text-gray-700">Hostel</label>
+                            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">Hostel</label>
                             <select
                                 name="hostel"
                                 required
                                 value={formData.hostel}
                                 onChange={handleChange}
-                                className="mt-1 block w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                                className="mt-1 block w-full px-4 py-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 text-gray-900 dark:text-white"
                             >
                                 <option value="">Select Hostel</option>
                                 <option value="Hostel 1">Hostel 1</option>
@@ -196,12 +196,12 @@ const RegistrationForm = () => {
 
                     {/* Sports Selection */}
                     <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-3">
-                            Select Sports {formData.gender && <span className="text-blue-600 font-normal">(Max {formData.gender === 'Boy' ? 3 : 4})</span>}
+                        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
+                            Select Sports {formData.gender && <span className="text-blue-600 dark:text-blue-400 font-normal">(Max {formData.gender === 'Boy' ? 3 : 4})</span>}
                         </label>
                         <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                             {currentSportsList.map(sport => (
-                                <div key={sport} className="flex items-center p-2 border border-gray-100 rounded hover:bg-gray-50 transition-colors">
+                                <div key={sport} className="flex items-center p-2 border border-gray-100 dark:border-gray-700 rounded hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
                                     <input
                                         type="checkbox"
                                         id={sport}
@@ -209,14 +209,14 @@ const RegistrationForm = () => {
                                         onChange={() => handleSportChange(sport)}
                                         className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded cursor-pointer"
                                     />
-                                    <label htmlFor={sport} className="ml-2 text-sm text-gray-700 cursor-pointer w-full">
+                                    <label htmlFor={sport} className="ml-2 text-sm text-gray-700 dark:text-gray-300 cursor-pointer w-full">
                                         {sport}
                                     </label>
                                 </div>
                             ))}
                         </div>
                         {!formData.gender && (
-                            <p className="text-sm text-gray-500 italic mt-2">
+                            <p className="text-sm text-gray-500 dark:text-gray-400 italic mt-2">
                                 Select a gender to view available sports.
                             </p>
                         )}

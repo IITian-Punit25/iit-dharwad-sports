@@ -10,17 +10,17 @@ const timelineEvents = [
 
 const Timeline = () => {
     return (
-        <div className="relative border-l-2 border-gray-200 ml-3 md:ml-6 space-y-12 my-12">
+        <div className="relative border-l-2 border-gray-200 dark:border-gray-700 ml-3 md:ml-6 space-y-12 my-12">
             {timelineEvents.map((event, index) => (
                 <div key={index} className="relative pl-8 md:pl-12">
                     {/* Dot */}
-                    <div className="absolute -left-[9px] top-0 h-5 w-5 rounded-full border-4 border-white bg-accent shadow-sm"></div>
+                    <div className="absolute -left-[9px] top-0 h-5 w-5 rounded-full border-4 border-white dark:border-gray-800 bg-accent shadow-sm"></div>
 
                     <div className="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-4 mb-2">
                         <span className="text-accent font-bold text-xl">{event.year}</span>
-                        <h3 className="text-lg font-bold text-primary">{event.title}</h3>
+                        <h3 className="text-lg font-bold text-primary dark:text-white">{event.title}</h3>
                     </div>
-                    <p className="text-gray-600 leading-relaxed max-w-2xl">
+                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed max-w-2xl">
                         {event.description}
                     </p>
                 </div>
